@@ -3,5 +3,7 @@
 
 from django.db import models
 
+from .agent import Agent
+
 class Listing(models.Model):
-    pass
+    listing_agent = models.ForeignKey('Agnet', on_delete=models.PROTECT)
