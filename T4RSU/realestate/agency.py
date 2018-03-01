@@ -4,4 +4,7 @@
 from django.db import models
 
 class Agency(models.Model):
+    """
+    Represents a real estate agency.
+    """
     pass
