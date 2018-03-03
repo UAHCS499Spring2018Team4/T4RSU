@@ -4,7 +4,7 @@
 from django.db import models
 
 from .listing import Listing
-from .agent import Agent
+from .models import RealEstateAgentUser as Agent
 
 def doShowingsOverlap(a: 'Showing', b: 'Showing') -> bool:
     """

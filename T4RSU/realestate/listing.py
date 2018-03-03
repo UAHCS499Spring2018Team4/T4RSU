@@ -3,7 +3,7 @@
 
 from django.db import models
 
-from .agent import Agent
+from .models import RealEstateAgentUser as Agent
 
 class Listing(models.Model):
     """
