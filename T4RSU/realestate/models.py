@@ -19,8 +19,12 @@ class RealEstateAgentUserManager(BaseUserManager):
             raise ValueError('Users must have a username')
         if not email:
             raise ValueError('Users must have an email address')
+        if not isinstance(agency, Agency):
+            agency = Agency.objects.get(pk=int(agency))
         if not agency:
             raise ValueError('Users must have an agency')
+        if not isinstance(agency, Agency):
+            raise ValueError('could not get agency')
 
         user = self.model(
             username=username,
@@ -32,15 +36,16 @@ class RealEstateAgentUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username: str, email, password):
+    def create_superuser(self, username: str, email, agency: 'Agency', password):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
         """
         user = self.create_user(
-            email,
+            email=email,
             password=password,
             username=username,
+            agency=agency
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -57,7 +62,7 @@ class RealEstateAgentUser(AbstractBaseUser):
     EMAIL_FIELD = 'email'
     agency = models.ForeignKey('Agency', on_delete=models.CASCADE, null=True)
     REQUIRED_FIELDS = ['email', 'agency']
-    objects = RealEstateAgentUserManager
+    objects = RealEstateAgentUserManager()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 

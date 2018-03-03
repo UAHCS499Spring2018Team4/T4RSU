@@ -7,4 +7,4 @@ class Agency(models.Model):
     """
     Represents a real estate agency.
     """
-    pass
+    agency_name = models.CharField(max_length=1000)
