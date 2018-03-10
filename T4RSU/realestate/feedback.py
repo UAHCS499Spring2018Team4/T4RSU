@@ -4,12 +4,15 @@
 
 from django.db import models
 
-from .shcedule import Showing
+from .schedule import Showing
 
 class Feedback(models.Model):
+    """
+    Feedback for a showing.
+    """
     showing = models.ForeignKey('Showing', on_delete=models.PROTECT)
-    customerInterest = models.IntegerField
-    overallExperience = models.IntegerField
-    customerPriceOpinion = models.IntegerField
-    showerPriceOpinion = models.IntegerField
-    additionalNotes = models.TextField
+    customerInterest = models.IntegerField()
+    overallExperience = models.IntegerField()
+    customerPriceOpinion = models.IntegerField()
+    showerPriceOpinion = models.IntegerField()
+    additionalNotes = models.TextField()

@@ -9,4 +9,4 @@ class Agency(models.Model):
     """
     agency_name = models.CharField(max_length=1000)
     #Address?
-    phone = models.IntegerField
+    phone = models.TextField()
