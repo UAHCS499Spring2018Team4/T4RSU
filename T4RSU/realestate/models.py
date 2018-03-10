@@ -11,7 +11,7 @@ from .agency import Agency
 # Create your models here.
 
 class RealEstateAgentUserManager(BaseUserManager):
-    def create_user(self, username: str, email, agency: 'Agency', password=None):
+    def create_user(self, username: str, email: str, agency: 'Agency', password: str=None, is_super: bool=False):
         """
         Create the user
         """
@@ -19,12 +19,13 @@ class RealEstateAgentUserManager(BaseUserManager):
             raise ValueError('Users must have a username')
         if not email:
             raise ValueError('Users must have an email address')
-        if not isinstance(agency, Agency):
-            agency = Agency.objects.get(pk=int(agency))
-        if not agency:
-            raise ValueError('Users must have an agency')
-        if not isinstance(agency, Agency):
-            raise ValueError('could not get agency')
+        if not is_super:
+            if not isinstance(agency, Agency):
+                agency = Agency.objects.get(pk=int(agency))
+            if not agency:
+                raise ValueError('Users must have an agency')
+            if not isinstance(agency, Agency):
+                raise ValueError('could not get agency')
 
         user = self.model(
             username=username,
@@ -45,7 +46,8 @@ class RealEstateAgentUserManager(BaseUserManager):
             email=email,
             password=password,
             username=username,
-            agency=agency
+            agency=agency,
+            is_super=True
         )
         user.is_admin = True
         user.save(using=self._db)
