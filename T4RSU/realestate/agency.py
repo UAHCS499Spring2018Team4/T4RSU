@@ -8,3 +8,5 @@ class Agency(models.Model):
     Represents a real estate agency.
     """
     agency_name = models.CharField(max_length=1000)
+    #Address?
+    phone = models.TextField()
