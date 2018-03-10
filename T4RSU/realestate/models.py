@@ -37,10 +37,9 @@ class RealEstateAgentUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username: str, email, agency: 'Agency', password):
+    def create_superuser(self, username: str, email: str, agency: 'Agency', password: str):
         """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
+        Creates and saves a superuser.
         """
         user = self.create_user(
             email=email,
