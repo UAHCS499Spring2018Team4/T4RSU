@@ -70,7 +70,7 @@ class RealEstateAgentUser(AbstractBaseUser):
     def __str__(self):
         return self.username
 
-    def has_perm(self, perm, obj=None):
+    def has_perm(self, perm, obj=None) -> bool:
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         # TODO: restrict ability to schedule showings
@@ -78,13 +78,13 @@ class RealEstateAgentUser(AbstractBaseUser):
         # TODO: restrict ability to provide feedback to creator
         return True
 
-    def has_module_perms(self, app_label):
+    def has_module_perms(self, app_label) -> bool:
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
 
     @property
-    def is_staff(self):
+    def is_staff(self) -> bool:
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
