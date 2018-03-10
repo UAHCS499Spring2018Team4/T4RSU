@@ -21,11 +21,11 @@ class RealEstateAgentUserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         if not is_super:
             if not isinstance(agency, Agency):
-                agency = Agency.objects.get(pk=int(agency))
-            if not agency:
-                raise ValueError('Users must have an agency')
-            if not isinstance(agency, Agency):
-                raise ValueError('could not get agency')
+                try:
+                    int_agency = int(agency)
+                except ValueError as e:
+                    raise ValueError('Can\'t get pk for agency lookup') from e
+                agency = Agency.objects.get(pk=int_agency)
 
         user = self.model(
             username=username,
