@@ -61,7 +61,7 @@ class RealEstateAgentUser(AbstractBaseUser):
     USERNAME_FIELD = 'username'
     email = models.EmailField()
     EMAIL_FIELD = 'email'
-    agency = models.ForeignKey('Agency', on_delete=models.CASCADE, null=True)
+    agency = models.ForeignKey(Agency, on_delete=models.CASCADE, null=True)
     REQUIRED_FIELDS = ['email', 'agency']
     objects = RealEstateAgentUserManager()
     is_active = models.BooleanField(default=True)
