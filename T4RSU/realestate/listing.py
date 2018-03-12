@@ -17,7 +17,7 @@ class Listing(models.Model):
     price = models.DecimalField(max_digits=13, decimal_places=2)    # 1 bn $ sale?
     address = models.TextField()
     squareFootage = models.FloatField()
-    listing_agency = models.ForeignKey('Agency', on_delete=models.PROTECT)
+    listing_agency = models.ForeignKey('Agency', on_delete=models.PROTECT) # TODO: Remove me
     description = models.TextField()
     roomDescription = models.TextField()
     subdivision = models.TextField(null=True)
