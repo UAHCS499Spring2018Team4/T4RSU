@@ -11,7 +11,7 @@ from .agency import Agency
 # Create your models here.
 
 class RealEstateAgentUserManager(BaseUserManager):
-    def create_user(self, username: str, email: str, phone, agency: 'Agency', password: str=None, is_super: bool=False):
+    def create_user(self, username: str, email: str, agency: 'Agency', password: str=None, is_super: bool=False):
         """
         Create the user
         """
@@ -19,8 +19,6 @@ class RealEstateAgentUserManager(BaseUserManager):
             raise ValueError('Users must have a username')
         if not email:
             raise ValueError('Users must have an email address')
-        if not phone:
-            raise ValueError('Users must have a phone number')
         if not is_super:
             if not isinstance(agency, Agency):
                 try:
@@ -32,7 +30,6 @@ class RealEstateAgentUserManager(BaseUserManager):
         user = self.model(
             username=username,
             email=self.normalize_email(email),
-            phone=phone,
             agency=agency,
         )
 
@@ -40,13 +37,12 @@ class RealEstateAgentUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username: str, email: str, phone, agency: 'Agency', password: str):
+    def create_superuser(self, username: str, email: str, agency: 'Agency', password: str):
         """
         Creates and saves a superuser.
         """
         user = self.create_user(
             email=email,
-            phone=phone,
             password=password,
             username=username,
             agency=agency,
@@ -65,9 +61,8 @@ class RealEstateAgentUser(AbstractBaseUser):
     USERNAME_FIELD = 'username'
     email = models.EmailField()
     EMAIL_FIELD = 'email'
-    phone = models.CharField(max_length=1000, null=True)
     agency = models.ForeignKey('Agency', on_delete=models.CASCADE, null=True)
-    REQUIRED_FIELDS = ['email', 'agency', 'phone']
+    REQUIRED_FIELDS = ['email', 'agency']
     objects = RealEstateAgentUserManager()
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
