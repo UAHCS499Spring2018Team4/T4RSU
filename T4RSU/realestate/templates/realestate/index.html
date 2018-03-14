@@ -1,0 +1,31 @@
+
+
+<!--
+
+Flask Tutorial Web Development with Python 11 - User System
+
+-->
+
+
+<body>
+
+<h4>Login:</h4>
+
+<form action="{{ app_path }}" class="form-inline" method="post">{% csrf_token %}
+
+    <input type="text" class="form-control"
+           placeholder = "Username" name="username"
+           value="">
+    <input type="password" class="form-control"
+           placeholder = "Password" name="password"
+           value="">
+    <input class="btn btn-default" type="submit"
+           value="Enter">
+
+
+</form>
+
+
+</body>
+
+
