@@ -11,7 +11,7 @@ from .agency import Agency
 # Create your models here.
 
 class RealEstateAgentUserManager(BaseUserManager):
-    def create_user(self, username: str, email, phone, agency: 'Agency', password=None):
+    def create_user(self, username: str, email: str, phone, agency: 'Agency', password: str=None, is_super: bool=False):
         """
         Create the user
         """
@@ -21,12 +21,13 @@ class RealEstateAgentUserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         if not phone:
             raise ValueError('Users must have a phone number')
-        if not isinstance(agency, Agency):
-            agency = Agency.objects.get(pk=int(agency))
-        if not agency:
-            raise ValueError('Users must have an agency')
-        if not isinstance(agency, Agency):
-            raise ValueError('could not get agency')
+        if not is_super:
+            if not isinstance(agency, Agency):
+                try:
+                    int_agency = int(agency)
+                except ValueError as e:
+                    raise ValueError('Can\'t get pk for agency lookup') from e
+                agency = Agency.objects.get(pk=int_agency)
 
         user = self.model(
             username=username,
@@ -39,17 +40,17 @@ class RealEstateAgentUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username: str, email, phone, agency: 'Agency', password):
+    def create_superuser(self, username: str, email: str, phone, agency: 'Agency', password: str):
         """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
+        Creates and saves a superuser.
         """
         user = self.create_user(
             email=email,
             phone=phone,
             password=password,
             username=username,
-            agency=agency
+            agency=agency,
+            is_super=True
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -74,7 +75,7 @@ class RealEstateAgentUser(AbstractBaseUser):
     def __str__(self):
         return self.username
 
-    def has_perm(self, perm, obj=None):
+    def has_perm(self, perm, obj=None) -> bool:
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         # TODO: restrict ability to schedule showings
@@ -82,13 +83,13 @@ class RealEstateAgentUser(AbstractBaseUser):
         # TODO: restrict ability to provide feedback to creator
         return True
 
-    def has_module_perms(self, app_label):
+    def has_module_perms(self, app_label) -> bool:
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
 
     @property
-    def is_staff(self):
+    def is_staff(self) -> bool:
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
