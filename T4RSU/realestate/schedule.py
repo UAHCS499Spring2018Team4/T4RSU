@@ -32,7 +32,7 @@ class Showing(models.Model):
     """
     Represents a showing.
     """
-    listing = models.ForeignKey('Listing', on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     start_time = models.DateTimeField()
     duration = models.DurationField()
-    showing_agent = models.ForeignKey('Agent', on_delete=models.PROTECT)
+    showing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)

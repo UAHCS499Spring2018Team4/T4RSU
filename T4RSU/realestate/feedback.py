@@ -10,7 +10,7 @@ class Feedback(models.Model):
     """
     Feedback for a showing.
     """
-    showing = models.ForeignKey('Showing', on_delete=models.PROTECT)
+    showing = models.ForeignKey(Showing, on_delete=models.PROTECT)
     customerInterest = models.IntegerField()
     overallExperience = models.IntegerField()
     customerPriceOpinion = models.IntegerField()
