@@ -3,6 +3,5 @@
 
 from django.views.generic import TemplateView
 
-
-class ShowingScheduleView(TemplateView):
-    template_name = 'ShowingSchedule.html'
+class OverviewView(TemplateView):
+    template_name = 'Overview.html'
