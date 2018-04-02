@@ -5,4 +5,4 @@ from django.views.generic import TemplateView
 
 
 class ShowingScheduleView(TemplateView):
-    template_name = 'ShowingSchedule.html'
+    template_name = 'ListOfShowings.html'
