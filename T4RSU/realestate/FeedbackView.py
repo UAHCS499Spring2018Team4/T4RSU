@@ -5,4 +5,4 @@ from django.views.generic import CreateView
 
 
 class FeedbackView(CreateView):
-    template_name = 'Feedback.html'
+    template_name = 'CreateFeedback.html'

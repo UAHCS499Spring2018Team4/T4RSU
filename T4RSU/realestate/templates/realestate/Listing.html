@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <title>Buy Your Home Today! -- Millenial Realty</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="3-col-portfolio.css" rel="stylesheet">
+	<link href="NewButton.css" rel="stylesheet">
+  </head>
+
+  <style>
+.greentext {
+		color: #0fc705
+		/*color: #3fc23e;*/
+}
+
+
+body {
+    margin: 0px;
+    width:100%;
+    overflow:auto;
+}
+	a:link{text-decoration: none;}
+	
+	a:hover{color: #0fc705;}
+	
+	.darken{
+		background-image:
+			linear-gradient(
+				rgba(0, 0, 0, 3.0)
+				rgba(0, 0, 0, 3.0)
+			)
+	}
+	.logo {
+		width:15%;
+		height:auto;
+    }
+
+	<--.ghost-button-semi-transparent {
+
+		display: inline-block;
+		width: 200px;
+		padding: 8px;
+		/*color: #fff;*/
+		border: 2px solid #fff;
+		text-align: center;
+		outline: none;
+		text-decoration: none;
+		transition: background-color 0.2s ease-out,
+              border-color 0.2s ease-out;
+	}
+		
+	.ghost-button-semi-transparent: hover,
+	.ghost-button-semi-transparent: active {
+		background-color: rgba(255, 255, 255, 0.8);
+		color:#000;
+        transition: background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+	}-->
+    .title, .text {
+        color: white;
+    }
+
+    .topbar {
+        padding-top: 0%;
+    }
+
+    .paneltext {
+        border-radius: 15px 15px 15px 15px;
+        top:40%;
+        position: absolute;
+        background-color: 0;
+        display:block;
+        <!--box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 20px 30px 0 rgba(0, 0, 0, 1);-->
+        <!--background: rgba(229, 229, 230, 0.5);-->
+        right: 10%;
+        left: 15%;
+		color: #ffffff;
+		font-weight: 3000;
+		font-family: Arial, sans-serif;
+    }
+
+    .inner {
+       <!-- opacity: 1;-->
+        color: #ffffff;
+        position: relative;
+        text-align: center;
+        width: auto;
+        padding-left: 9%;
+        padding-bottom: 1%;
+    }
+	
+	.big-btn{
+		width: 200px;
+		height: 50px;
+	}
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 60px; 
+        background-color: #f5f5f5;
+        /*background: linear-gradient(to bottom, #282828, #f5f5f5);*/
+    }
+
+    .soft-text {
+		font-family: "Helvetica Neue", Arial, sans-serif;
+            /*color: WhiteSmoke;*/
+			
+     }
+
+	.ButtonList {
+		list-style type: none;
+		font-family: "Helvetica Neue", Arial, sans-serif;
+	}
+	
+	.theme-color{
+		background-color: #FFFFFF;
+	}
+	
+	.top-bar {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+</style>
+  
+  <body>
+
+    <!-- Navigation -->
+    <div class="fixed-top">
+	<!--<div class="container-fluid">-->
+    <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
+        <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
+
+      <div class="container col-sm-10">
+
+        <div class="form-group col-sm-7">
+            <div class="navbar-brand col-sm-12">
+                <div class="row">
+                    <label class="col-sm-2 control-label">Search</label>
+                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Our House is a Very Fine House Indeed"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-1"></div>
+        <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
+          <ul class="navbar-nav col-sm-7 greentext">
+            <li class="nav-item">
+              <a class="nav-link greentext" href="#">Advanced Search</a>
+            </li>
+            <!-- {% if Logged In %} -->
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Log Out</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Create Listing</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">View Showings</a>
+				</li>
+				<!-- {% if Agent.Agency = Listing.Agency %} -->
+                    <a class="nav-link greentext" href="#">Edit Listing</a>
+				<!--{% endif %} -->
+            <!-- {% else %}
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">For Agents</a>
+				</li>
+            {% endif %} -->
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+	</div>
+
+    <!-- Page Content -->
+    <div class="container" style="text-align:center;" >
+
+      <div class="row">
+
+        <div class="col-lg-3">
+          <div class="card card-outline-secondary my-4">
+            <div class="card-header">
+              Addition Information
+            </div>
+            <div class="card-body">
+              <p>Put School District Here</p>
+              <hr>
+              <p>Put Subdivision Name Here</p>
+              <hr>
+              <p>Put Nearby Shopping Here</p>
+              <hr>
+            </div>
+			<div class="card-header">
+              Contact Info
+            </div>
+            <div class="card-body">
+              <p>Listing Agency: (Put Agency Name here)</p>
+              <p>(Agency Phone here)</p>
+              <p>(Agency Address Here)</p>
+              <hr>
+			  <p>Listing Agent: (Put Agent Name here)</p>
+              <p>(Agent Phone here)</p>
+              <p>(Agency Email Here)</p>
+              
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+          <div class="card mt-4">
+            <img class="card-img-top img-fluid" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="">
+            <div class="card-body">
+              <h3 class="card-title">Example Listing (put address here)</h3>
+              <h4>$350000 (Price Here)</h4>
+			  <h5>2000 SqF (Square Footage Here)</h5>
+              <p class="card-text">Example Description (put description here)</p>
+              <p class="room-text">Room Descriptions (put room descriptions here)</p>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <footer class="footer">
+        <ul class="nav col-sm-12 soft-text">
+            <li class="col-sm-2"> &copy; 2018 Team4 Productions</li>
+            <li class="col-sm-2"><a href-"#">Contact</a></li>
+            <li class="col-sm-2"><a href-"#">Legal</a></li>
+            <li class="col-sm-2"><a href-"#">Press</a></li>
+            <li class="col-sm-2"><a href-"#">Careers</a></li>
+            <li class="col-sm-2"><a href-"#">Corporate</a></li>
+        </ul>
+    </footer>
+
+    
+
+  </body>
+
+</html>

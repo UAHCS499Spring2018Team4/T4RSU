@@ -1,12 +1,7 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-
-    url(r'^demo/$', views.demo, name='demo'),
-
-
-
+    path('', views.Overview, name='Overview'),
 ]
