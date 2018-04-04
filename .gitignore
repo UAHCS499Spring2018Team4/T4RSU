@@ -157,3 +157,6 @@ fabric.properties
 
 # macs
 **/.DS_Store
+
+# ad
+.idea/misc.xml
