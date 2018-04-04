@@ -4,4 +4,4 @@
 from django.views.generic import UpdateView
 
 class ShowingEditView(UpdateView):
-    template_name = 'ShowingEdit.html'
+    template_name = 'CreateShowing.html'

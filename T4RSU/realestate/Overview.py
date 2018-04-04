@@ -4,4 +4,4 @@
 from django.views.generic import TemplateView
 
 class OverviewView(TemplateView):
-    template_name = 'Overview.html'
+    template_name = 'LandingPage.html'

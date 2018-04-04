@@ -4,4 +4,4 @@
 from django.views.generic import DetailView
 
 class ListingView(DetailView):
-    template_name = 'ListingView.html'
+    template_name = 'Listing.html'

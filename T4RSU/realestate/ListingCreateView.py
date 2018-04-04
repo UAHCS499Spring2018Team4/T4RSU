@@ -5,4 +5,4 @@ from django.views.generic import CreateView
 
 
 class ListingCreateView(CreateView):
-    template_name = 'ListingCreate.html'
+    template_name = 'CreateListing.html'
