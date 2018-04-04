@@ -28,3 +28,6 @@ class Listing(models.Model):
     alarmNotes = models.TextField()
     isOccupied = models.BooleanField()
     lockBoxCode = models.TextField()    # TODO: nullable?
+
+    def __str__(self):
+        return 'Number: ' + str(self.MLSNumber)
