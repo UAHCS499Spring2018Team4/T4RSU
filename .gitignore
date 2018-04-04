@@ -154,3 +154,6 @@ fabric.properties
 # django stuff
 **/db.sqlite3
 **/migrations/*
+
+# macs
+**/.DS_Store
