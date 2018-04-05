@@ -48,23 +48,14 @@
               <a class="nav-link greentext" href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <!-- {% if Logged In %}
-                    <a class="nav-link" href="#">Log Out</a>
-                {% else %} -->
-                    <a class="nav-link greentext" href="#">Log In</a>
-                <!-- {% endif %} -->
+				<a class="nav-link greentext" href="#">Log Out</a>
             </li>
-            
-            <!-- {% if Logged In %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                </li>
-            {% endif %} -->
             
           </ul>
         </div>
       </div>
     </nav>
+	</div>
 		
 </head>
 <body>
@@ -72,12 +63,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form id="msform">
-            <!-- progressbar -->
-            <ul id="progressbar">
-                <li class="active">Numeric Feedback</li>
-                <li>Additional Comments</li>
-            </ul>
+        <form method="POST" id="msform">
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">Numeric Feedback</h2>
@@ -93,9 +79,9 @@
 													<option value="8">8</option>
 													<option value="9">9</option>
 													<option value="10">10</option>
-													</select> 
-					<br>
-					Customer Price Opinion:			<select name="customerPrice">
+												</select>
+				<br>
+				Customer Price Opinion:			<select name="customerPrice">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -106,9 +92,9 @@
 													<option value="8">8</option>
 													<option value="9">9</option>
 													<option value="10">10</option>
-													</select> 
-					<br>
-					Showing Agent Price Opinion:	<select name="showingPrice">
+												</select>
+				<br>
+				Showing Agent Price Opinion:	<select name="showingPrice">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -119,9 +105,9 @@
 													<option value="8">8</option>
 													<option value="9">9</option>
 													<option value="10">10</option>
-													</select> 
-					<br>
-					Overall Experience: 			<select name="experience">
+												</select>
+				<br>
+				Overall Experience: 			<select name="experience">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -132,18 +118,12 @@
 													<option value="8">8</option>
 													<option value="9">9</option>
 													<option value="10">10</option>
-													</select> 
-													<br>
-                <input type="button" name="next" class="next action-button" value="Next"/>
-            </fieldset>
-            <fieldset>
-                <h2 class="fs-title">Additional Comments</h2>
+												</select>
+					<br>
                 <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
 				<textarea rows="2" cols="50" name="comments" placeholder="Comments."></textarea>
-                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
-			
         </form>
         <!-- link to designify.me code snippets -->
         <!--<div class="dme_link">

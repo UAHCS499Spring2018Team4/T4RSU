@@ -48,23 +48,14 @@
               <a class="nav-link greentext" href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <!-- {% if Logged In %}
-                    <a class="nav-link" href="#">Log Out</a>
-                {% else %} -->
-                    <a class="nav-link greentext" href="#">Log In</a>
-                <!-- {% endif %} -->
+                <a class="nav-link greentext" href="#">Log Out</a>
             </li>
-            
-            <!-- {% if Logged In %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                </li>
-            {% endif %} -->
             
           </ul>
         </div>
       </div>
     </nav>
+    </div>
 		
 </head>
 <body>
@@ -72,16 +63,12 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form id="msform">
-            <!-- progressbar -->
-            <ul id="progressbar">
-                <li class="active">Showing Time</li>
-            </ul>
+        <form method="POST" id="msform">
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">Showing Time</h2>
                 <h3 class="fs-subtitle">Please put in the start time of the showing. Showings last for 1 hour.</h3>
-				<input id="startTime" type="datetime-local" name="start" value="2018-12-31T12:00"> 
+				<input id="startTime" type="datetime-local" name="startTime" value="2018-12-31T12:00">
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form>
