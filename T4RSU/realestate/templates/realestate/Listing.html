@@ -132,7 +132,7 @@ body {
 
     <!-- Navigation -->
     <div class="fixed-top">
-	<!--<div class="container-fluid">-->
+	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
         <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
 
@@ -140,20 +140,20 @@ body {
 
         <div class="form-group col-sm-7">
             <div class="navbar-brand col-sm-12">
-                <div class="row">
-                    <label class="col-sm-2 control-label">Search</label>
-                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Our House is a Very Fine House Indeed"/>
-                </div>
+                <form class="row" method="POST">
+                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Quick Search by Zip Code"/>
+                    <input type="submit" name="search" class="submit action-button" value="Submit"/>
+                </form>
             </div>
         </div>
 
         <div class="col-sm-1"></div>
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
           <ul class="navbar-nav col-sm-7 greentext">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link greentext" href="#">Advanced Search</a>
-            </li>
-            <!-- {% if Logged In %} -->
+            </li> -->
+            <!-- {% if user.is_authenticated %} -->
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">Log Out</a>
 				</li>
@@ -163,7 +163,7 @@ body {
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">View Showings</a>
 				</li>
-				<!-- {% if Agent.Agency = Listing.Agency %} -->
+				<!-- {% if user.Agency = Listing.Agency %} -->
                     <a class="nav-link greentext" href="#">Edit Listing</a>
 				<!--{% endif %} -->
             <!-- {% else %}
@@ -177,6 +177,7 @@ body {
       </div>
     </nav>
 	</div>
+	</div>
 
     <!-- Page Content -->
     <div class="container" style="text-align:center;" >
@@ -189,26 +190,36 @@ body {
               Addition Information
             </div>
             <div class="card-body">
-              <p>Put School District Here</p>
+              <p>School District: {{listing.schoolDistrict}}</p>
               <hr>
-              <p>Put Subdivision Name Here</p>
+              <p>Subdivision Name: {{listing.subdivision}}</p>
               <hr>
-              <p>Put Nearby Shopping Here</p>
-              <hr>
+              <p>Nearby Shopping: {{listing.shopping}}</p>
             </div>
 			<div class="card-header">
               Contact Info
             </div>
             <div class="card-body">
-              <p>Listing Agency: (Put Agency Name here)</p>
-              <p>(Agency Phone here)</p>
-              <p>(Agency Address Here)</p>
+              <p>Listing Agency: {{listing.listing_agent.agency.agency_name}}</p>
+              <p>{{listing.listing_agent.agency.agency_phone}}</p>
+              <p>{{listing.listing_agent.agency.agency_address}}</p>
               <hr>
-			  <p>Listing Agent: (Put Agent Name here)</p>
-              <p>(Agent Phone here)</p>
-              <p>(Agency Email Here)</p>
-              
+              <p>Listing Agent: {{listing.listing_agent.username}}</p>
+              <p>{{listing.listing_agent.phone})</p>
+              <p>{{listing.listing_agent.email})</p>
             </div>
+            <!-- {% if user.Agency = Listing.Agency %} -->
+                <div class="card-header">
+                    Delete Listing?
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <!-- <p>If you wish to delete this listing, please input the listing's address.</p>
+                        <input type="text" name="address" placeholder="Address"/> -->
+                        <input type="submit" name="delete" class="submit action-button" value="Delete"/>
+                    </form>
+                </div>
+            <!--{% endif %} -->
           </div>
         </div>
         <!-- /.col-lg-3 -->
@@ -218,11 +229,11 @@ body {
           <div class="card mt-4">
             <img class="card-img-top img-fluid" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="">
             <div class="card-body">
-              <h3 class="card-title">Example Listing (put address here)</h3>
-              <h4>$350000 (Price Here)</h4>
-			  <h5>2000 SqF (Square Footage Here)</h5>
-              <p class="card-text">Example Description (put description here)</p>
-              <p class="room-text">Room Descriptions (put room descriptions here)</p>
+              <h3 class="card-title">{{listing.address}}</h3>
+              <h4>$ {{listing.price}}</h4>
+			  <h5>{{listing.squareFootage}} SqF</h5>
+              <p class="card-text">{{listing.description}}</p>
+              <p class="room-text">{{listing.roomDescription}}</p>
             </div>
           </div>
           <!-- /.card -->
@@ -241,11 +252,11 @@ body {
     <footer class="footer">
         <ul class="nav col-sm-12 soft-text">
             <li class="col-sm-2"> &copy; 2018 Team4 Productions</li>
-            <li class="col-sm-2"><a href-"#">Contact</a></li>
-            <li class="col-sm-2"><a href-"#">Legal</a></li>
-            <li class="col-sm-2"><a href-"#">Press</a></li>
-            <li class="col-sm-2"><a href-"#">Careers</a></li>
-            <li class="col-sm-2"><a href-"#">Corporate</a></li>
+            <li class="col-sm-2"><a href="#">Contact</a></li>
+            <li class="col-sm-2"><a href="#">Legal</a></li>
+            <li class="col-sm-2"><a href="#">Press</a></li>
+            <li class="col-sm-2"><a href="#">Careers</a></li>
+            <li class="col-sm-2"><a href="#">Corporate</a></li>
         </ul>
     </footer>
 
