@@ -140,7 +140,7 @@ body {
 
         <div class="form-group col-sm-7">
             <div class="navbar-brand col-sm-12">
-                <form class="row" method="POST">
+                <form class="row" method="POST"> {% csrf_token %}
                     <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Quick Search by Zip Code"/>
                     <input type="submit" name="search" class="submit action-button" value="Submit"/>
                 </form>
@@ -149,9 +149,9 @@ body {
 
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
           <ul class="navbar-nav col-sm-7 greentext">
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link greentext" href="#">Advanced Search</a>
-            </li> -->
+            </li>
             <!-- {% if user.is_authenticated %} -->
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">Log Out</a>
@@ -213,7 +213,7 @@ body {
                     Delete Listing?
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST"> {% csrf_token %}
                         <!-- <p>If you wish to delete this listing, please input the listing's address.</p>
                         <input type="text" name="address" placeholder="Address"/> -->
                         <input type="submit" name="delete" class="submit action-button" value="Delete"/>

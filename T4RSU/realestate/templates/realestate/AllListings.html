@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>3 Col Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="3-col-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <style>
+.greentext {
+		color: #0fc705
+		/*color: #3fc23e;*/
+}
+
+
+body {
+    margin: 0px;
+    width:100%;
+    overflow:auto;
+}
+	a:link{text-decoration: none;}
+	
+	a:hover{color: #0fc705;}
+	
+	.darken{
+		background-image:
+			linear-gradient(
+				rgba(0, 0, 0, 3.0)
+				rgba(0, 0, 0, 3.0)
+			)
+	}
+	.logo {
+		width:15%;
+		height:auto;
+    }
+
+	<--.ghost-button-semi-transparent {
+
+		display: inline-block;
+		width: 200px;
+		padding: 8px;
+		/*color: #fff;*/
+		border: 2px solid #fff;
+		text-align: center;
+		outline: none;
+		text-decoration: none;
+		transition: background-color 0.2s ease-out,
+              border-color 0.2s ease-out;
+	}
+		
+	.ghost-button-semi-transparent: hover,
+	.ghost-button-semi-transparent: active {
+		background-color: rgba(255, 255, 255, 0.8);
+		color:#000;
+        transition: background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+	}-->
+    .title, .text {
+        color: white;
+    }
+
+    .topbar {
+        padding-top: 0%;
+    }
+
+    .paneltext {
+        border-radius: 15px 15px 15px 15px;
+        top:40%;
+        position: absolute;
+        background-color: 0;
+        display:block;
+        <!--box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 20px 30px 0 rgba(0, 0, 0, 1);-->
+        <!--background: rgba(229, 229, 230, 0.5);-->
+        right: 10%;
+        left: 15%;
+		color: #ffffff;
+		font-weight: 3000;
+		font-family: Arial, sans-serif;
+    }
+
+    .inner {
+       <!-- opacity: 1;-->
+        color: #ffffff;
+        position: relative;
+        text-align: center;
+        width: auto;
+        padding-left: 9%;
+        padding-bottom: 1%;
+    }
+	
+	.big-btn{
+		width: 200px;
+		height: 50px;
+	}
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 60px; 
+        background-color: #f5f5f5;
+        /*background: linear-gradient(to bottom, #282828, #f5f5f5);*/
+    }
+
+    .soft-text {
+		font-family: "Helvetica Neue", Arial, sans-serif;
+            /*color: WhiteSmoke;*/
+			
+     }
+
+	.ButtonList {
+		list-style type: none;
+		font-family: "Helvetica Neue", Arial, sans-serif;
+	}
+	
+	.theme-color{
+		background-color: #FFFFFF;
+	}
+	
+	.top-bar {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+</style>
+  
+  <body>
+
+    <!-- Navigation -->
+    <div class="fixed-top">
+	<!--<div class="container-fluid">-->
+    <nav class="navbar navbar-expand-lg col-sm-12" style="background-color:#ffffff;">
+        <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
+
+      <div class="container col-sm-10">
+
+        <div class="form-group col-sm-7">
+            <div class="navbar-brand col-sm-12">
+                <form class="row" method="POST"> {% csrf_token %}
+                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Quick Search by Zip Code"/>
+                    <input type="submit" name="search" class="submit action-button" value="Submit"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
+          <ul class="navbar-nav col-sm-7 greentext">
+            <li class="nav-item">
+              <a class="nav-link greentext" href="#">Advanced Search</a>
+            </li>
+            <!-- {% if user.is_authenticated %} -->
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Log Out</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Create Listing</a>
+				</li>
+            <!-- {% else %}
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">For Agents</a>
+				</li>
+            {% endif %} -->
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+        <ul class="nav">
+		<nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;"> 
+            <li class="col-sm-2 ButtonList">
+                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">TRADITIONAL HOMES</button></a>
+            </li>
+            <li class="col-sm-2 ButtonList">
+                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONTEMPORARY HOMES</button></a>
+            </li>
+            <li class="col-sm-2 ButtonList">
+                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">APARTMENTS</button></a>
+            </li>
+            <li class="col-sm-2 ButtonList">
+                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONDOS/LOFTS</button></a>
+            </li>
+            <li class="col-sm-2 ButtonList">
+                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">BEST BUYS</button></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4">
+      </h1>
+
+      <div class="row" style="padding:0px;">
+	  
+	  <!-- {% for listing in listing_list %}-->
+        <div class="col-lg-4 col-sm-6 portfolio-item" >
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">{{listing.address}}</a>
+              </h4>
+              <p class="card-text">{{listing.description}}</p>
+            </div>
+          </div>
+	  <!-- {% endfor %} -->
+        </div>
+		
+		
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">Listing Two (Address here)</a>
+              </h4>
+              <p class="card-text">Description Here</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/259600/pexels-photo-259600.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">Listing Three (Address here)</a>
+              </h4>
+              <p class="card-text">Description Here</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">Listing Four (Address here)</a>
+              </h4>
+              <p class="card-text">Description Here</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">Listing Five (Address here)</a>
+              </h4>
+              <p class="card-text">Description Here</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#" class="nav-link greentext">Listing Six (Address here)</a>
+              </h4>
+              <p class="card-text">Description Here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <!-- Pagination 
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul> -->
+
+    </div>
+    <!-- /.container -->
+
+    
+    
+    <footer class="footer">
+        <ul class="nav col-sm-12 soft-text">
+            <li class="col-sm-2"> &copy; 2018 Team4 Productions</li>
+            <li class="col-sm-2"><a href="#" class="nav-link greentext">Contact</a></li>
+            <li class="col-sm-2"><a href="#" class="nav-link greentext">Legal</a></li>
+            <li class="col-sm-2"><a href="#" class="nav-link greentext">Press</a></li>
+            <li class="col-sm-2"><a href="#" class="nav-link greentext">Careers</a></li>
+            <li class="col-sm-2"><a href="#" class="nav-link greentext">Corporate</a></li>
+        </ul>
+    </footer>
+
+
+  </body>
+
+</html>

@@ -75,31 +75,31 @@
             <fieldset>
                 <h2 class="fs-title">Basic Property Information</h2>
                 <h3 class="fs-subtitle">Please describe your listing</h3>
-				<input type="text" name="MLS" placeholder="MLS"/> <!--May not be needed -->
-                <input type="text" name="address" placeholder="Address"/>
-				<input type="text" name="zipCode" placeholder="Zip code"/>
-                <input type="text" name="price" placeholder="Price (Do not include $)"/>
-                <input type="text" name="squareFoot" placeholder="Square Footage of living space"/>
-                <textarea name="generalDescript"  rows="2" cols="50" placeholder="General Description. Include keywords like House, Apartment, Condo or Loft."></textarea>
-                <textarea name="roomDescript" rows="2" cols="50" placeholder="Room Descriptions. Include terms like number of bathrooms/bedrooms."></textarea>
+				<input type="text" name="MLS" placeholder="MLS" value="{{listing.MLS}}"/> <!--May not be needed -->
+                <input type="text" name="address" placeholder="Address" value="{{listing.address}}"/>
+				<input type="text" name="zipCode" placeholder="Zip code"  value="what?"/>
+                <input type="text" name="price" placeholder="Price (Do not include $)" value="{{listing.price}}"/>
+                <input type="text" name="squareFoot" placeholder="Square Footage of living space"  value="{{listing.squareFootage}}"/>
+                <textarea name="generalDescript"  rows="2" cols="50" placeholder="General Description. Include keywords like House, Apartment, Condo or Loft."  value="{{listing.description}}"></textarea>
+                <textarea name="roomDescript" rows="2" cols="50" placeholder="Room Descriptions. Include terms like number of bathrooms/bedrooms."  value="{{listing.roomDescription}}"></textarea>
 
                 House is occupied:  <select name="isOccupied">
                                         <option value="true">Yes</option>
                                         <option value="false">No</option>
                                     </select>
 
-                <h3 class="fs-subtitle">Upload the primary picture of the property</h3>
-                <input type="file" name="primaryPicture" placeholder="Upload primaryPicture Here"/>
+                <h3 class="fs-subtitle">Upload a new primary picture of the property</h3>
+                <input type="file" name="primaryPicture" placeholder="Upload primary Picture Here" />
 
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>
                 <h2 class="fs-title">Additional Property Information</h2>
 				<h3 class="fs-subtitle">Include additional information on the listing if applicable.</h3>
-				<input type="text" name="school" placeholder="SchoolDistrict" />
-				<input type="text" name="subDivision" placeholder="Sub Division Name (N/A if not in a sub division)"/>
-				<textarea rows="2" cols="50" name="shopping" placeholder="List near by shopping locations."></textarea>
-                <h3 class="fs-subtitle">Upload up to 5 additional pictures to be displayed on the Listing's page</h3>
+				<input type="text" name="school" placeholder="SchoolDistrict"  value="{{listing.schoolDistrict}}"/>
+				<input type="text" name="subDivision" placeholder="Sub Division Name (N/A if not in a sub division)" value="{{listing.subdivision}}"/>
+				<textarea rows="2" cols="50" name="shopping" placeholder="List near by shopping locations."  value="{{listing.shopping}}"></textarea>
+                <h3 class="fs-subtitle">Upload up to 5 new pictures to be displayed on the Listing's page</h3>
                 <input type="file" name="Picture1" placeholder="Upload Pictures Here"/>
                 <input type="file" name="Picture2" placeholder="Upload Pictures Here"/>
                 <input type="file" name="Picture3" placeholder="Upload Pictures Here"/>
@@ -111,11 +111,11 @@
             <fieldset>
                 <h2 class="fs-title">Alarm Information</h2>
 				<h3 class="fs-subtitle">Include information about the listing's Alarms and Lockbox.</h3>
-				<input type="text" name="armCode" placeholder="Code to arm the alarm" />
-				<input type="text" name="disarmCode" placeholder="Code to disarm the alarm" />
-				<input type="text" name="password" placeholder="the password, if one is needed" />
-				<input type="text" name="alarmNotes" placeholder="any additional notes on the alarm" />
-				<input type="text" name="lockBoxCode" placeholder="The Lock Box Code"/>
+				<input type="text" name="armCode" placeholder="Code to arm the alarm"  value="{{listing.armCode}}"/>
+				<input type="text" name="disarmCode" placeholder="Code to disarm the alarm"  value="{{listing.disarmCode}}"/>
+				<input type="text" name="password" placeholder="the password, if one is needed"  value="{{listing.password}}"/>
+				<input type="text" name="alarmNotes" placeholder="any additional notes on the alarm"  value="{{listing.alarmNotes}}"/>
+				<input type="text" name="lockBoxCode" placeholder="The Lock Box Code"  value="{{listing.lockBoxCode}}"/>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
