@@ -15,6 +15,11 @@
 		/*color: #3fc23e;*/
 }
 
+.darkgreentext {
+		color: #097c03
+		/*color: #3fc23e;*/
+}
+
 
 body {
     margin: 0px;
@@ -200,14 +205,18 @@ tr:nth-child(even) {
                         <th>End Time</th>
                         <th>Showing Agent</th>
                         <th>Showing Agency</th>
+                        <th>Feedback</th>
                     </tr>
 
 	                <!-- {% for showing in showing_list %}-->
                         <tr>
                             <td>{{showing.startTime}}</td>
-                            <td>End Time</td>
+                            <td>{{showing.startTime}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
+                            <!-- {% if user.username = showing.showing_agent.username %} -->
+                                <td><a class="nav-link darkgreentext" href="#">Feedback</a></td>
+                            <!-- {% endif %} -->
                         </tr>
                     <!-- {% endfor %} -->
                 </table>
