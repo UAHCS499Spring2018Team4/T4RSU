@@ -3,13 +3,12 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.Overview, name='Overview'),
+    path('', views.OverviewView.as_view(), name='Overview'),
 
+    path('search/', views.SearchView, name='SearchView'),
 
-    re_path(r'^ListView/$', views.ListView, name='ListView'),
+    re_path(r'^(?P<listing_id>[0-9]+)/del/$', views.ListingDeleteView, name='Delete'),
 
-    re_path(r'^(?P<listing_id>[0-9]+)/del/$', views.Delete, name='Delete'),
-
-    re_path(r'^(?P<listing_id>[0-9]+)/change/$', views.ListChange, name='ListChange'),
+    re_path(r'^(?P<listing_id>[0-9]+)/change/$', views.ListingEditView, name='ListChange'),
 
 ]
