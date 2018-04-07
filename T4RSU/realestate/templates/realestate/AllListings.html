@@ -10,11 +10,12 @@
 
     <title>3 Col Portfolio - Start Bootstrap Template</title>
 
+      {% load static %}
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="3-col-portfolio.css" rel="stylesheet">
+    <link href="{% static '3-col-portfolio.css' %}" rel="stylesheet">
 
   </head>
 
@@ -197,6 +198,7 @@ body {
             <li class="col-sm-2 ButtonList">
                 <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">BEST BUYS</button></a>
             </li>
+        </nav>
         </ul>
     </div>
 </div>
