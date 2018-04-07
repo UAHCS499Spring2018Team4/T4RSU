@@ -3,7 +3,7 @@
 
 from django.views.generic import ListView
 
-from . import Listing
+from .Listing import Listing
 
 class SearchView(ListView):
     template_name = 'SearchView.html'
