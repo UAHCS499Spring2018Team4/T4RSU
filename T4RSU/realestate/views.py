@@ -7,14 +7,12 @@ from django.contrib.auth import authenticate
 #from django.core.context_processors import csrf
 from django.shortcuts import render
 
-from . import (
-    FeedbackView,
-    ListingCreateView,
-    ListingDeleteView,
-    ListingEditView,
-    ListingView,
-    Overview,
-    SearchView,
-    ShowingEditView,
-    ShowingScheduleView
-)
+from .FeedbackView import FeedbackView
+from .ListingCreateView import ListingCreateView
+from .ListingDeleteView import ListingDeleteView
+from .ListingEditView import ListingEditView
+from .ListingView import ListingView
+from .Overview import OverviewView
+from .SearchView import SearchView
+from .ShowingEditView import ShowingEditView
+from .ShowingScheduleView import ShowingScheduleView

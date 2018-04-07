@@ -55,7 +55,7 @@ ROOT_URLCONF = 'T4RSU.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['realestate/templates/realestate'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

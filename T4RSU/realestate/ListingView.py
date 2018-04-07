@@ -3,9 +3,9 @@
 
 from django.views.generic import DetailView
 
-from . import listing
+from .Listing import Listing
 
 class ListingView(DetailView):
     template_name = 'Listing.html'
-    queryset = listing.object.all()
+    queryset = Listing.objects.all()
     context_object_name = 'Listing'
