@@ -20,7 +20,7 @@ class HomeView(TemplateView):
 
     def get(self, request):
         form = HomeForm()
-        return render(request, self.template_name, {'form: form'})
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         form = HomeForm(request.POST)
