@@ -3,7 +3,7 @@
 
 
 from django.db import models
-from .listing import Listing
+from .Listing import Listing
 
 class Photo(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)

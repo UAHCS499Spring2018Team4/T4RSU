@@ -6,6 +6,6 @@
 from .agency import Agency
 from .agent import RealEstateAgentUser
 from .feedback import Feedback
-from .listing import  Listing
+from .Listing import Listing
 from .photo import Photo
 from .schedule import Showing
