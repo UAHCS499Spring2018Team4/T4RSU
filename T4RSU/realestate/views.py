@@ -1,13 +1,8 @@
-from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect, HttpResponse
-from django.template import loader
-from .models import Agency
-from .models import Listing
-from django.contrib.auth import authenticate
-#from django.core.context_processors import csrf
-from django.shortcuts import render
+#!/usr/bin/env python3
+# encoding=utf-8
 
 from .FeedbackView import FeedbackView
+from .HomeView import HomeView
 from .ListingCreateView import ListingCreateView
 from .ListingDeleteView import ListingDeleteView
 from .ListingEditView import ListingEditView
