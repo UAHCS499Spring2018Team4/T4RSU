@@ -1,0 +1,10 @@
+# other stuff goes here?
+
+# tell github's linguist where our vendor code is
+T4RSU/realestate/static/jquery/ linguist-vendored
+T4RSU/realestate/static/bootstrap/ linguist-vendored
+T4RSU/realestate/static/multistepform/ linguist-vendored
+T4RSU/realestate/static/bootstrap.min.css linguist-vendored
+T4RSU/realestate/static/3-col-portfolio.css linguist-vendored
+
+T4RSU/realestate/templates/realestate/*.html linguist-language=HTML+Django
