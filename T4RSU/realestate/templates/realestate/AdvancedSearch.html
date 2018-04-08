@@ -67,9 +67,13 @@
         <form method="POST" id="msform"> {% csrf_token %}
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Showing Time</h2>
-                <h3 class="fs-subtitle">Please put in the start time of the showing. Showings last for 1 hour.</h3>
-				<input id="startTime" type="datetime-local" name="startTime" value="2018-12-31T12:00">
+                <h2 class="fs-title">Advanced Search</h2>
+                <h3 class="fs-subtitle">Search by Zip Code, Price Range, or Square Footage</h3>
+				<input type="text" name="zipcode" placeholder="Zipcode"/>
+                <input type="text" name="minPrice" placeholder="Minimum Price (do not include $)"/>
+                <input type="text" name="maxPrice" placeholder="Maximum Price (do not include $)"/>
+                <input type="text" name="minSquareFoot" placeholder="Minimum Square Footage"/>
+                <input type="text" name="maxSquareFoot" placeholder="Maximum Square Footage"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form>

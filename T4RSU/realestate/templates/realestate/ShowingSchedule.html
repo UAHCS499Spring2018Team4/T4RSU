@@ -1,16 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+    <head>
     <title>Buy Your Home Today! -- Millenial Realty</title>
-    {% load static %}
-    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static '3-col-portfolio.css' %}" rel="stylesheet">
-	<link href="{% static 'NewButton.css' %}" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="3-col-portfolio.css" rel="stylesheet">
+	<link href="NewButton.css" rel="stylesheet">
   </head>
 
-<style>
+  <style>
 .greentext {
 		color: #0fc705
+		/*color: #3fc23e;*/
+}
+
+.darkgreentext {
+		color: #097c03
 		/*color: #3fc23e;*/
 }
 
@@ -124,97 +130,106 @@ body {
 		margin: 0px;
 		padding: 0px;
 	}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #71fb6a;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #71fb6a;
+}
 	
 </style>
-
+  
   <body>
 
     <!-- Navigation -->
     <div class="fixed-top">
-	<!--<div class="container-fluid">-->
+	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
-       <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
+        <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
 
       <div class="container col-sm-10">
 
         <div class="form-group col-sm-7">
             <div class="navbar-brand col-sm-12">
-                <div class="row">
-                    <label class="col-sm-2 control-label">Search</label>
-                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Enter Zip Code"/>
-                </div>
+                <form class="row" method="POST">
+                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Quick Search by Zip Code"/>
+                    <input type="submit" name="search" class="submit action-button" value="Submit"/>
+                </form>
             </div>
         </div>
 
         <div class="col-sm-1"></div>
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
-		<div class="col-sm-6"></div>
           <ul class="navbar-nav col-sm-7 greentext">
-            <li class="nav-item">
-              <a class="nav-link greentext" href="#">FAQ</a>
-            </li>
-            <li class="nav-item">
-                <!-- {% if user.is_authenticated %}
-                    <a class="nav-link" href="#">Log Out</a>
-                {% else %} -->
-                    <a class="nav-link greentext" href="#">Log In</a>
-                <!-- {% endif %} -->
-            </li>
-            
-            <!-- {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                </li>
-            {% endif %} -->
+            <!-- <li class="nav-item">
+              <a class="nav-link greentext" href="#">Advanced Search</a>
+            </li> -->
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Log Out</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">Create Showing</a>
+				</li>
             
           </ul>
-		</div>
-      </div>
-   </nav>
- 
-	<!--</div>-->
-
-    <div>
-        <ul class="nav">
-		<nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;"> 
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">TRADITIONAL HOMES</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONTEMPORARY HOMES</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">APARTMENTS</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONDOS/LOFTS</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">BEST BUYS</button></a>
-            </li>
-        </nav>
-        </ul>
-    </div>
-</div>
-
-    <div class="col-sm-12 darken" style="padding:0px;">
-         <img src="splash.jpg" style="width:100%;">
-		 
-         <div class="paneltext">
-            <div class="inner">
-                <h1 class="display-3">Find Your Perfect Home Today</h1>
-				
-				<button class="btn btn-lg big-btn btn-success">Get Started</button>
-                <!-- {% lorem 200 w %} -->
-                <br>
-                <br>
-				<!--<a class="ghost-button-semi-transparent" href="#">Ghost button text</a>
-                {% lorem 100 w %} -->
-            </div>
         </div>
+      </div>
+    </nav>
+	</div>
+	</div>
+
+    <!-- Page Content -->
+    <div class="container" style="text-align:center; padding:0px 10% 10% 0 ! important;" >
+
+
+
+          <!-- /.card -->
+            <div class="card-header"style="border: 1px solid rgba(0,0,0,.125) ! important;">
+              Showings for MLS {{listing.MLS}}: {{listing.address}}
+            </div>
+            <div class="card-body" style="border: 1px solid rgba(0,0,0,.125) ! important;">
+                <p>Listed by {{listing.agent.username}} of {{listing.agent.agency.agency_name}}</p>
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Showing Agent</th>
+                        <th>Showing Agency</th>
+                        <th>Feedback</th>
+                    </tr>
+
+	                <!-- {% for showing in showing_list %}-->
+                        <tr>
+                            <td>{{showing.startTime}}</td>
+                            <td>{{showing.startTime}}</td>
+                            <td>{{showing.showing_agent.username}}</td>
+                            <td>{{showing.showing_agent.agency.agency_name}}</td>
+                            <!-- {% if user.username = showing.showing_agent.username %} -->
+                                <td><a class="nav-link darkgreentext" href="#">Feedback</a></td>
+                            <!-- {% endif %} -->
+                        </tr>
+                    <!-- {% endfor %} -->
+                </table>
+            </div>
+          
+          <!-- /.card -->
+
+        <!-- /.col-lg-9 -->
+
+      </div>
+
     </div>
-	
-	
+    <!-- /.container -->
 
     <footer class="footer">
         <ul class="nav col-sm-12 soft-text">
@@ -227,4 +242,8 @@ body {
         </ul>
     </footer>
 
-</body>
+    
+
+  </body>
+
+</html>
