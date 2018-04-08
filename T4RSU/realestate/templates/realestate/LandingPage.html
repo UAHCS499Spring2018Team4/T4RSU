@@ -133,7 +133,8 @@ body {
     <div class="fixed-top">
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
-       <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
+        {% load static %}
+       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="#">
 
       <div class="container col-sm-10">
 
@@ -198,7 +199,8 @@ body {
 </div>
 
     <div class="col-sm-12 darken" style="padding:0px;">
-         <img src="splash.jpg" style="width:100%;">
+        {% load static %}
+         <img src="{% static 'splash.jpg' %}" style="width:100%;">
 		 
          <div class="paneltext">
             <div class="inner">
