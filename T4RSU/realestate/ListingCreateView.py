@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 # encoding=utf-8
 
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
+from realestate.listing import Listing
+from django.shortcuts import render
 
 
 class ListingCreateView(CreateView):
     template_name = 'CreateListing.html'
+    model = Listing
+    fields = ['MLSNumber']
+
+
+    def post(self, request):
+        form = Listing(request.POST)
+
+        return render(request, self.template_name, {'form': form})
