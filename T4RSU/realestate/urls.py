@@ -17,8 +17,8 @@ urlpatterns = [
 
     ##re_path(r'^CreateListing/$', ListingCreateView.as_view(), name='CreateListing'),
 
-    ##re_path(r'^CreateListing/$', TemplateView.as_view(template_name="CreateListing.html")),
+    re_path(r'^CreateListing/$', ListingCreateView.as_view(), name='CreateListing'),
 
     re_path(r'^Home/$', HomeView.as_view(), name='home'),
-    #######################################
+
 ]
