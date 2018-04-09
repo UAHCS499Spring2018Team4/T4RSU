@@ -4,9 +4,10 @@
 
     <head>
     <title>Buy Your Home Today! -- Millenial Realty</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="3-col-portfolio.css" rel="stylesheet">
-	<link href="NewButton.css" rel="stylesheet">
+        {% load static %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '3-col-portfolio.css' %}" rel="stylesheet">
+	<link href="{% static 'NewButton.css' %}" rel="stylesheet">
   </head>
 
   <style>
@@ -153,7 +154,8 @@ tr:nth-child(even) {
     <div class="fixed-top">
 	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
-        <img src="poshplacehorizontal.jpg" class="logo col-sm-2" href="#">
+        {% load static %}
+       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="#">
 
       <div class="container col-sm-10">
 

@@ -1,9 +1,4 @@
-from django import forms
+#!/usr/bin/env python3
+# encoding=utf-8
 
-class HomeForm(forms.Form):
-    address = forms.CharField()
-    description = forms.CharField()
-    isOccupied = forms.BooleanField()
-
-
-
+from .HomeForm import HomeForm

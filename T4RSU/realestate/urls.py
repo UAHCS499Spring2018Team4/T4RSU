@@ -1,24 +1,15 @@
-from django.urls import path, re_path
-from . import views
-from django.views.generic import TemplateView
-from realestate.ListingCreateView import ListingCreateView
-from realestate.views import HomeView
+#!/usr/bin/env python3
+# encoding=utf-8
 
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    #path('', views.Overview, name='Overview'),
-
-
-    #re_path(r'^ListView/$', views.ListView, name='ListView'),
-
-    #re_path(r'^(?P<listing_id>[0-9]+)/del/$', views.Delete, name='Delete'),
-
-    re_path(r'^(?P<listing_id>[0-9]+)/change/$', views.ListChange, name='ListChange'),
-
-    ##re_path(r'^CreateListing/$', ListingCreateView.as_view(), name='CreateListing'),
-
-    re_path(r'^CreateListing/$', ListingCreateView.as_view(), name='CreateListing'),
-
-    re_path(r'^Home/$', HomeView.as_view(), name='home'),
-
+    path('', views.OverviewView.as_view(), name='Overview'),
+    path('search/', views.SearchView.as_view(), name='SearchView'),
+    path('Listing/<int:MLSNumber>/', views.ListingView.as_view(), name='ListingView'),
+    path('Listing/<int:MLSNumber>/Delete/', views.ListingDeleteView.as_view(), name='Delete'),
+    path('Listing/<int:MLSNumber>/Edit/', views.ListingEditView.as_view(), name='ListChange'),
+    path('Create/', views.ListingCreateView.as_view(), name='CreateListing'),
+    path('Home/', views.HomeView.as_view(), name='home'),
 ]
