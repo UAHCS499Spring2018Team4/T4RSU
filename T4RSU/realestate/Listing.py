@@ -10,7 +10,7 @@ class Listing(models.Model):
     Represents a listing.
     """
     #listing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
-    #MLSNumber = models.IntegerField(unique=True)
+    MLSNumber = models.IntegerField(unique=True)
     #picture = models.ImageField()
     #price = models.DecimalField(max_digits=13, decimal_places=2)    # 1 bn $ sale?
     address = models.TextField()
@@ -35,3 +35,5 @@ class Listing(models.Model):
         return str(self.address)
 
     def get_absolute_url(self):
+        pass
+
