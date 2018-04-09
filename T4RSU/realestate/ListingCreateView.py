@@ -8,20 +8,7 @@ from realestate.forms import HomeForm
 
 
 class ListingCreateView(CreateView):
-    template_name = 'home.html'
+    template_name = 'CreateListing.html'
 
-    def get(self, request):
-        form = HomeForm()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
-        form = HomeForm(request.POST)
-        if form.is_valid():
-            field1 = form.cleaned_data['address']
-            field2 = form.cleaned_data['description']
-            field3 = form.cleaned_data['isOccupied']
-            a = Listing(address=field1, description=field2, isOccupied=field3)
-            a.save()
-
-        args = {'form': form, 'text': field1}
-        return render(request, self.template_name, args)
+    model = Listing
+    fields = ['address', 'description', 'isOccupied']

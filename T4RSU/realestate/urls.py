@@ -13,7 +13,7 @@ urlpatterns = [
 
     #re_path(r'^(?P<listing_id>[0-9]+)/del/$', views.Delete, name='Delete'),
 
-    #re_path(r'^(?P<listing_id>[0-9]+)/change/$', views.ListChange, name='ListChange'),
+    re_path(r'^(?P<listing_id>[0-9]+)/change/$', views.ListChange, name='ListChange'),
 
     ##re_path(r'^CreateListing/$', ListingCreateView.as_view(), name='CreateListing'),
 

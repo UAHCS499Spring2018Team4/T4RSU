@@ -32,3 +32,5 @@ class Listing(models.Model):
     def __str__(self):
         #return 'Number: ' + str(self.MLSNumber)
         return str(self.address)
+
+    def get_absolute_url(self):
