@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>3 Col Portfolio - Start Bootstrap Template</title>
+    <title>Buy Your Home Today! -- Millenial Realty</title>
 
       {% load static %}
     <!-- Bootstrap core CSS -->
@@ -222,6 +222,8 @@ body {
                 <a href="#" class="nav-link greentext">{{listing.address}}</a>
               </h4>
               <p class="card-text">{{listing.description}}</p>
+              <p class="card-text">{{listing.listing_agent.username}}</p>
+              <p class="card-text">{{listing.listing_agent.agency.agency_name}}</p>
             </div>
           </div>
 	  <!-- {% endfor %} -->
