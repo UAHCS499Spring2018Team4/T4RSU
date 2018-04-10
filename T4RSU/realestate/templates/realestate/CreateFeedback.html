@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Buy Your Home Today! -- Millenial Realty</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,6 +67,17 @@
     <div class="col-md-6 col-md-offset-3">
         <form method="POST" id="msform"> {% csrf_token %}
             <!-- fieldsets -->
+			<fieldset>
+                <h2 class="fs-title">Showing Information</h2>
+				<h3 class="fs-subtitle">This information is required for the showing</h3>
+				<p>The lockbox code is {{listing.lockBoxCode}}</p>
+				{% if listing.isOccupied %}
+				<p>The location is occupied.</p>
+				{% else %}
+				<p>The location is not occupied.</p>
+				{% endif %}
+                <input type="button" name="next" class="next action-button" value="Leave Feedback"/>
+            </fieldset>
             <fieldset>
                 <h2 class="fs-title">Numeric Feedback</h2>
                 <h3 class="fs-subtitle">Please rate each item from 1 to 10</h3>
@@ -124,6 +136,8 @@
                 <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
 				<textarea rows="2" cols="50" name="comments" placeholder="Comments."></textarea>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                <input type="text" name="buyerName" placeholder="Potential Buyer's name"/>
+
             </fieldset>
         </form>
         <!-- link to designify.me code snippets -->
