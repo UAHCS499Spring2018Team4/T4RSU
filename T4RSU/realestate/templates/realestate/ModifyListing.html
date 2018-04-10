@@ -7,7 +7,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
     <!-- Bootstrap core CSS -->
     {% load static %}
     <link href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -79,7 +78,7 @@
                 <h3 class="fs-subtitle">Please describe your listing</h3>
 				<input type="text" name="MLS" placeholder="MLS" value="{{listing.MLS}}"/> <!--May not be needed -->
                 <input type="text" name="address" placeholder="Address" value="{{listing.address}}"/>
-				<input type="text" name="zipCode" placeholder="Zip code"  value="what?"/>
+				<input type="text" name="zipCode" placeholder="Zip code"  value="{{listing.zipCode}}"/>
                 <input type="text" name="price" placeholder="Price (Do not include $)" value="{{listing.price}}"/>
                 <input type="text" name="squareFoot" placeholder="Square Footage of living space"  value="{{listing.squareFootage}}"/>
                 <textarea name="generalDescript"  rows="2" cols="50" placeholder="General Description. Include keywords like House, Apartment, Condo or Loft."  value="{{listing.description}}"></textarea>
