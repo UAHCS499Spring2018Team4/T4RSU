@@ -49,14 +49,14 @@
               <a class="nav-link greentext" href="#">FAQ</a>
             </li>
             <li class="nav-item">
-				<a class="nav-link greentext" href="#">Log Out</a>
+                <a class="nav-link greentext" href="#">For Agents</a>
             </li>
             
           </ul>
         </div>
       </div>
     </nav>
-	</div>
+    </div>
 		
 </head>
 <body>
@@ -67,70 +67,18 @@
         <form method="POST" id="msform"> {% csrf_token %}
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Numeric Feedback</h2>
-                <h3 class="fs-subtitle">Please rate each item from 1 to 10</h3>
-                Customer Interest:				<select name="interest">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Customer Price Opinion:			<select name="customerPrice">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Showing Agent Price Opinion:	<select name="showingPrice">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Overall Experience: 			<select name="experience">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-					<br>
-                <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
-				<textarea rows="2" cols="50" name="comments" placeholder="Comments."></textarea>
+                <h2 class="fs-title">Log In</h2>
+                <h3 class="fs-subtitle">Please enter your Username and Password.</h3>
+                <input type="text" name="username" placeholder="Username"/>
+				<input type="text" name="password" placeholder="Password"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form>
-        <!-- link to designify.me code snippets -->
-        <!--<div class="dme_link">
+        <!-- link to designify.me code snippets
+        <div class="dme_link">
             <p><a href="http://designify.me/code-snippets-js/" target="_blank">More Code Snippets</a></p>
         </div>
-        <!-- /.link to designify.me code snippets -->
+        /.link to designify.me code snippets -->
     </div>
 </div>
 <!-- /.MultiStep Form -->
