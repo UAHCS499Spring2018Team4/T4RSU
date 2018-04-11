@@ -9,9 +9,6 @@ from django.shortcuts import render
 class ListingCreateView(CreateView):
     template_name = 'CreateListing.html'
     model = Listing
-    fields = ['MLSNumber']
+    fields = ['MLS', 'primaryPicture', 'price', 'address', 'zipCode', 'squareFoot', 'generalDescription', 'roomDescription', 'subDivision', 'school', 'shopping', 'armCode', 'disarmCode', 'password', 'alarmNotes', 'lockBoxCode', 'isOccupied']
 
-    def post(self, request):
-        form = Listing(request.POST)
-
-        return render(request, self.template_name, {'form': form})
+    

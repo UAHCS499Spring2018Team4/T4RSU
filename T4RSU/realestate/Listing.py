@@ -11,16 +11,16 @@ class Listing(models.Model):
     Represents a listing.
     """
     #listing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
-    MLSNumber = models.IntegerField(unique=True)
-    picture = models.ImageField()
+    MLS = models.IntegerField(unique=True)
+    primaryPicture = models.ImageField()
     price = models.DecimalField(max_digits=13, decimal_places=2)    # 1 bn $ sale?
     address = models.TextField()
     zipCode = models.IntegerField()
-    squareFootage = models.FloatField()
-    description = models.TextField()
+    squareFoot = models.FloatField()
+    generalDescription = models.TextField()
     roomDescription = models.TextField()
-    subdivision = models.TextField(null=True)
-    schoolDistrict = models.TextField()
+    subDivision = models.TextField(null=True)
+    school = models.TextField()
     shopping = models.TextField()
     totalHitCount = models.IntegerField(default=0)
     dailyHitCount = models.IntegerField(default=0)
@@ -32,7 +32,7 @@ class Listing(models.Model):
     lockBoxCode = models.TextField()    # TODO: nullable?
 
     def get_absolute_url(self):
-        return reverse('ListingView', kwargs={'MLSNumber': self.MLSNumber})
+        return reverse('ListingView', kwargs={'MLSNumber': self.MLS})
 
     def __str__(self):
         #return 'Number: ' + str(self.MLSNumber)
