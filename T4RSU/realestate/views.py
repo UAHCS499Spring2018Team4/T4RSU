@@ -11,3 +11,4 @@ from .Overview import OverviewView
 from .SearchView import SearchView
 from .ShowingEditView import ShowingEditView
 from .ShowingScheduleView import ShowingScheduleView
+from .ShowingCreateView import ShowingCreateView
