@@ -10,6 +10,7 @@ from .models import Listing, Showing
 class ShowingScheduleView(ListView):
     template_name = 'ShowingSchedule.html'
     model = Showing
+    context_object_name = 'showing_list'
 
     def get_queryset(self):
         lis = Listing.objects.get(MLSNumber=self.kwargs['MLSNumber'])
