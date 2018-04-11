@@ -2,6 +2,7 @@
 # encoding=utf-8
 
 from django.db import models
+from django.urls import reverse
 
 from .models import RealEstateAgentUser as Agent
 
@@ -29,6 +30,9 @@ class Listing(models.Model):
     alarmNotes = models.TextField()
     isOccupied = models.BooleanField()
     lockBoxCode = models.TextField()    # TODO: nullable?
+
+    def get_absolute_url(self):
+        return reverse('ListingView', kwargs={'MLSNumber': self.MLSNumber})
 
     def __str__(self):
         return 'Number: ' + str(self.MLSNumber)
