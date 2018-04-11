@@ -210,17 +210,17 @@ tr:nth-child(even) {
                         <th>Feedback</th>
                     </tr>
 
-	                <!-- {% for showing in showing_list %}-->
+	                {% for showing in showing_list %}
                         <tr>
                             <td>{{showing.startTime}}</td>
                             <td>{{showing.startTime}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
-                            <!-- {% if user.username = showing.showing_agent.username %} -->
+                            {% if user.username = showing.showing_agent.username %}
                                 <td><a class="nav-link darkgreentext" href="#">Feedback</a></td>
-                            <!-- {% endif %} -->
+                            {% endif %}
                         </tr>
-                    <!-- {% endfor %} -->
+                    {% endfor %}
                 </table>
             </div>
           

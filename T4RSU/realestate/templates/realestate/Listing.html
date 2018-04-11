@@ -136,7 +136,7 @@ body {
 	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="#">
+       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% urls 'home' %}">
 
       <div class="container col-sm-10">
 
@@ -156,11 +156,17 @@ body {
             </li>
             <!-- {% if user.is_authenticated %} -->
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">Log Out</a>
+                    <a class="nav-link greentext" href="# TODO">Log Out</a>
 				</li>
 				<li class="nav-item">
-                    { % url 'CreateListing' % }
+                    <a class="nav-ling greentest" href="{% url 'CreateListing' %}">Create Listing</a>
 				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="#">View Showings</a>
+				</li>
+				<!-- {% if Agent.Agency = Listing.Agency %} -->
+                    <a class="nav-link greentext" href="{% url 'ListChange' listing.MLS %}">Edit Listing</a>
+				<!--{% endif %} -->
             <!-- {% else %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">For Agents</a>

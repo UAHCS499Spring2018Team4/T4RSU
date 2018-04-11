@@ -2,6 +2,7 @@
 # encoding=utf-8
 
 from django.db import models
+from django.urls import reverse
 
 from .models import RealEstateAgentUser as Agent
 
@@ -21,14 +22,17 @@ class Listing(models.Model):
     subdivision = models.TextField(null=True)
     schoolDistrict = models.TextField()
     shopping = models.TextField()
-    totalHitCount = models.IntegerField()
-    dailyHitCount = models.IntegerField()
+    totalHitCount = models.IntegerField(default=0)
+    dailyHitCount = models.IntegerField(default=0)
     armCode = models.TextField(null=True)
     disarmCode = models.TextField(null=True)
     password = models.TextField(null=True)
     alarmNotes = models.TextField()
     isOccupied = models.BooleanField()
     lockBoxCode = models.TextField()    # TODO: nullable?
+
+    def get_absolute_url(self):
+        return reverse('ListingView', kwargs={'MLSNumber': self.MLSNumber})
 
     def __str__(self):
         #return 'Number: ' + str(self.MLSNumber)
