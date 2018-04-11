@@ -2,6 +2,8 @@
 # encoding=utf-8
 
 from django.urls import path
+from django.contrib.auth import views as auth_views
+
 from . import views
 
 urlpatterns = [
@@ -14,4 +16,5 @@ urlpatterns = [
     path('Listing/<int:MLSNumber>/Showings/Create', views.ShowingCreateView.as_view(), name='showingcreate'),
     path('Create/', views.ListingCreateView.as_view(), name='CreateListing'),
     path('Home/', views.HomeView.as_view(), name='home'),
+    path('login/', auth_views.LoginView.as_view(template_name='LogIn.html'), name='login')
 ]
