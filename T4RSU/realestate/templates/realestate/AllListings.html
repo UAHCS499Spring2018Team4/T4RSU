@@ -216,14 +216,14 @@ body {
 	  {% for listing in listing_list %}
         <div class="col-lg-4 col-sm-6 portfolio-item" >
           <div class="card h-100">
-            <a href="{% url 'ListingView' pk=Listing.MLSNumber %}"><img class="card-img-top" src="{% if Listing.picture %}{{Listing.picture.url}}{% endif %}" alt=""></a>
+            <a href="{% url 'ListingView' pk=listing.MLSNumber %}"><img class="card-img-top" src="{% if listing.picture %}{{listing.picture.url}}{% endif %}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="{% url 'ListingView' pk=Listing.MLSNumber %}" class="nav-link greentext">{{Listing.address}}</a>
+                <a href="{% url 'ListingView' pk=listing.MLSNumber %}" class="nav-link greentext">{{listing.address}}</a>
               </h4>
-              <p class="card-text">{{Listing.description}}</p>
-              <p class="card-text">{{Listing.listing_agent.username}}</p>
-              <p class="card-text">{{Listing.listing_agent.agency.agency_name}}</p>
+              <p class="card-text">{{listing.description}}</p>
+              <p class="card-text">{{listing.listing_agent.username}}</p>
+              <p class="card-text">{{listing.listing_agent.agency.agency_name}}</p>
             </div>
           </div>
 	  {% endfor %}
