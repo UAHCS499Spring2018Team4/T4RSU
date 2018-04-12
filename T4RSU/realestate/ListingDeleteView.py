@@ -2,9 +2,12 @@
 # encoding=utf-8
 
 from django.views.generic import DeleteView
+from django.urls import reverse_lazy
 
 from .Listing import  Listing
 
 class ListingDeleteView(DeleteView):
     template_name = 'ListingDelete.html'
     model = Listing
+
+    success_url = reverse_lazy('Overview')
