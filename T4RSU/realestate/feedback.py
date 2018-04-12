@@ -11,6 +11,7 @@ class Feedback(models.Model):
     Feedback for a showing.
     """
     showing = models.ForeignKey(Showing, on_delete=models.PROTECT)
+    customerName = models.TextField()
     customerInterest = models.IntegerField()
     overallExperience = models.IntegerField()
     customerPriceOpinion = models.IntegerField()

@@ -27,12 +27,18 @@ class RealEstateAgentUserManager(BaseUserManager):
                     raise ValueError('Can\'t get pk for agency lookup') from e
                 agency = Agency.objects.get(pk=int_agency)
 
-        user = self.model(
-            username=username,
-            email=self.normalize_email(email),
-            phone=phone,
-            agency=agency,
-        )
+                user = self.model(
+                    username=username,
+                    email=self.normalize_email(email),
+                    phone=phone,
+                    agency=agency,
+                )
+        else:
+            user = self.model(
+                username=username,
+                email=self.normalize_email(email),
+                phone=phone,
+            )
 
         user.set_password(password)
         user.save(using=self._db)

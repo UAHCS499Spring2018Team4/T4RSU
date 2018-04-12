@@ -9,9 +9,25 @@ from django.shortcuts import render
 class ListingCreateView(CreateView):
     template_name = 'CreateListing.html'
     model = Listing
-    fields = ['MLSNumber']
+    fields = ['listing_agent',
+        'MLSNumber',
+        #'picture',
+        'price',
+        'address',
+        'zipCode',
+        'squareFootage',
+        'description',
+        'roomDescription',
+        'subdivision',
+        'schoolDistrict',
+        'shopping',
+        'armCode',
+        'disarmCode',
+        'password',
+        'alarmNotes',
+        'isOccupied',
+        'lockBoxCode',
+    ]
 
-    def post(self, request):
-        form = Listing(request.POST)
-
-        return render(request, self.template_name, {'form': form})
+    def form_invalid(self, form):
+        raise ValueError(str(form.errors))
