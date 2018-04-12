@@ -221,11 +221,9 @@ body {
                     Delete Listing?
                 </div>
                 <div class="card-body">
-                    <form method="POST"> {% csrf_token %}
-                        <!-- <p>If you wish to delete this listing, please input the listing's address.</p>
-                        <input type="text" name="address" placeholder="Address"/> -->
-                        <input type="submit" name="delete" class="submit action-button" value="Delete"/>
-                    </form>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="{% url 'Delete' pk=Listing.MLSNumber %}">Click here to delete this listing.</a>
+				</li>
                 </div>
             <!--{% endif %} -->
           </div>
