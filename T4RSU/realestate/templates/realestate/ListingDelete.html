@@ -68,74 +68,8 @@
         <form method="POST" id="msform"> {% csrf_token %}
             <!-- fieldsets -->
 			<fieldset>
-                <h2 class="fs-title">Showing Information</h2>
-				<h3 class="fs-subtitle">This information is required for the showing</h3>
-				<p>The lockbox code is {{listing.lockBoxCode}}</p>
-				{% if listing.isOccupied %}
-				<p>The location is occupied.</p>
-				{% else %}
-				<p>The location is not occupied.</p>
-				{% endif %}
-                <input type="button" name="next" class="next action-button" value="Leave Feedback"/>
-            </fieldset>
-            <fieldset>
-                <h2 class="fs-title">Numeric Feedback</h2>
-                <h3 class="fs-subtitle">Please rate each item from 1 to 10</h3>
-                Customer Interest:				<select name="customerInterest">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Customer Price Opinion:			<select name="customerPriceOpinion">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Showing Agent Price Opinion:	<select name="showerPriceOpinion">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-				<br>
-				Overall Experience: 			<select name="overallExperience">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-												</select>
-					<br>
-                <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
-				<textarea rows="2" cols="50" name="additionalNotes" placeholder="Comments."></textarea>
-				<input type="text" name="buyerName" placeholder="Potential Buyer's name"/>
+                <h2 class="fs-title">Delete Listing</h2>
+				<h3 class="fs-subtitle">Are you sure you want to delete this listing? If not, leave this page.</h3>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
 
 

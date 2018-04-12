@@ -145,7 +145,7 @@ body {
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12" style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="#">
+       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% url 'Overview' %}">
 
       <div class="container col-sm-10">
 
@@ -161,21 +161,21 @@ body {
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
           <ul class="navbar-nav col-sm-7 greentext">
             <li class="nav-item">
-              <a class="nav-link greentext" href="#">Advanced Search</a>
+              <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
-            <!-- {% if user.is_authenticated %} -->
+            {% if user.is_authenticated %}
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">Log Out</a>
+                    <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">Create Listing</a>
+                    <a class="nav-link greentext" href="{% url 'CreateListing' %}">Create Listing</a>
 				</li>
-            <!-- {% else %}
+            {% else %}
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">For Agents</a>
+                    <a class="nav-link greentext" href="{% url 'login' %}">For Agents</a>
 				</li>
-            {% endif %} -->
-            
+            {% endif %}
+
           </ul>
         </div>
       </div>
@@ -213,23 +213,23 @@ body {
 
       <div class="row" style="padding:0px;">
 	  
-	  <!-- {% for listing in listing_list %}-->
+	  {% for listing in listing_list %}
         <div class="col-lg-4 col-sm-6 portfolio-item" >
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
+            <a href="{% url 'ListingView' pk=listing.MLSNumber %}"><img class="card-img-top" src="{% if listing.picture %}{{listing.picture.url}}{% endif %}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#" class="nav-link greentext">{{listing.address}}</a>
+                <a href="{% url 'ListingView' pk=listing.MLSNumber %}" class="nav-link greentext">{{listing.address}}</a>
               </h4>
               <p class="card-text">{{listing.description}}</p>
               <p class="card-text">{{listing.listing_agent.username}}</p>
               <p class="card-text">{{listing.listing_agent.agency.agency_name}}</p>
             </div>
           </div>
-	  <!-- {% endfor %} -->
+	  {% endfor %}
         </div>
 		
-		
+		<!-- Extra data for testing layout
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
@@ -285,7 +285,7 @@ body {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- /.row -->
 
       <!-- Pagination 
@@ -320,7 +320,7 @@ body {
         </ul>
     </footer>
 
-
+    </div>
   </body>
 
 </html>

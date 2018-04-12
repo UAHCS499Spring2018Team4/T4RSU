@@ -44,6 +44,14 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.listing = Listing.objects.get(MLSNumber=self.kwargs['MLSNumber'])
         form.instance.showing_agent = self.request.user
+
+        message = """
+                {{showing_agent.username}} has scheduled a showing for listing #{{listing.MLSNumber}} at {{start_time}}.
+                """
+
+        send_mail('Showing Created!', message.as_string(), 'AutoPoshPlace', '{{showing.listing.listing_agent.email}}',
+                  fail_silently=False)
+
         return super().form_valid(form)
 
     def get_success_url(self):
