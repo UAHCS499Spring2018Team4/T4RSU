@@ -3,14 +3,10 @@
 
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import ModelForm, ValidationError
+from django.forms import ModelForm
 from django.views.generic import CreateView
 from django.urls import reverse
-from django.conf import settings
 from django.core.mail import send_mail
-
-from .Listing import Listing
-from .schedule import Showing, is_showing_td_available
 
 from .feedback import Feedback
 
@@ -22,8 +18,8 @@ class FeedbackCreateForm(ModelForm):
 
     class Meta:
         model = Feedback
-        fields = ['showing', 'customerName', 'costomerInterest', 'overallExperience', 'customerPriceOpinion', 'showerPriceOpinion', 'additionalNotes']
-/#
+        fields = ['showing', 'customerName', 'customerInterest', 'overallExperience', 'customerPriceOpinion', 'showerPriceOpinion', 'additionalNotes']
+#
 #    def clean(self):
 #        cleaned_data = super().clean()
 #        start = datetime(cleaned_data.get('start_time'))
@@ -31,9 +27,9 @@ class FeedbackCreateForm(ModelForm):
 #        if not is_showing_td_available(self.listingMLS, start, dur):
 #            raise ValidationError(_("Listing already booked for showing at that time."), code='overlap')
 #        return cleaned_data
-#/
+#
 
-class ShowingCreateView(LoginRequiredMixin, CreateView):
+class FeedbackCreateView(LoginRequiredMixin, CreateView):
     template_name = 'CreateFeedback.html'
     model = Feedback
     fields = ['showing', 'customerName', 'costomerInterest', 'overallExperience', 'customerPriceOpinion',
