@@ -10,7 +10,7 @@
     <form method="post">
         {% csrf_token %}
         <input type="text">{{ form.as_p }}
-        <button type="submit" href="{% url 'SearchView' %}">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
