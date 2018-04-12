@@ -2,16 +2,17 @@
 # encoding=utf-8
 
 from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .Listing import Listing
-from django.shortcuts import render
 
 
-class ListingCreateView(CreateView):
+class ListingCreateView(LoginRequiredMixin, CreateView):
     template_name = 'CreateListing.html'
     model = Listing
     fields = ['listing_agent',
         'MLSNumber',
-        #'picture',
+        'picture',
         'price',
         'address',
         'zipCode',
