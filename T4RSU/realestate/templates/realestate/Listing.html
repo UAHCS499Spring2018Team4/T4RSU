@@ -152,26 +152,26 @@ body {
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
           <ul class="navbar-nav col-sm-7 greentext">
             <li class="nav-item">
-              { % url 'SearchView' % }
+              <a class="nav-link greentext" href="{% url 'SearchView' %}">Search</a>
             </li>
-            <!-- {% if user.is_authenticated %} -->
+            {% if user.is_authenticated %}
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="# TODO">Log Out</a>
+                    <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
 				<li class="nav-item">
                     <a class="nav-ling greentest" href="{% url 'CreateListing' %}">Create Listing</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">View Showings</a>
+                    <a class="nav-link greentext" href="{% url 'showings' pk=Listing.MLSNumber %}">View Showings</a>
 				</li>
-				<!-- {% if Agent.Agency == Listing.Agency %} -->
+				{% if Agent.Agency == Listing.Agency %}
                     <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
-				<!--{% endif %} -->
-            <!-- {% else %}
+				{% endif %}
+            {% else %}
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">For Agents</a>
+                    <a class="nav-link greentext" href="{% url 'login' %}">For Agents</a>
 				</li>
-            {% endif %} -->
+            {% endif %}
             
           </ul>
         </div>
