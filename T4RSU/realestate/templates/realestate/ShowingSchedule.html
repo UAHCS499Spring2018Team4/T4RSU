@@ -175,10 +175,10 @@ tr:nth-child(even) {
               <a class="nav-link greentext" href="#">Advanced Search</a>
             </li> -->
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">Log Out</a>
+                    <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="#">Create Showing</a>
+                    <a class="nav-link greentext" href="{% url 'CreateShowing' %}">Create Showing</a>
 				</li>
             
           </ul>
@@ -217,7 +217,7 @@ tr:nth-child(even) {
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
                             {% if user.username = showing.showing_agent.username %}
-                                <td><a class="nav-link darkgreentext" href="#">Feedback</a></td>
+                                <td><a class="nav-link darkgreentext" href="{% url 'CreateFeedback' pk=listing.MLS %}">Feedback</a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}

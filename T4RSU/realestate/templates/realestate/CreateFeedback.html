@@ -50,7 +50,7 @@
               <a class="nav-link greentext" href="#">FAQ</a>
             </li>
             <li class="nav-item">
-				<a class="nav-link greentext" href="#">Log Out</a>
+				<a class="nav-link greentext" href="{% url 'LandingPage' %}">Log Out</a>
             </li>
             
           </ul>
@@ -81,7 +81,7 @@
             <fieldset>
                 <h2 class="fs-title">Numeric Feedback</h2>
                 <h3 class="fs-subtitle">Please rate each item from 1 to 10</h3>
-                Customer Interest:				<select name="interest">
+                Customer Interest:				<select name="customerInterest">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -94,7 +94,7 @@
 													<option value="10">10</option>
 												</select>
 				<br>
-				Customer Price Opinion:			<select name="customerPrice">
+				Customer Price Opinion:			<select name="customerPriceOpinion">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -107,7 +107,7 @@
 													<option value="10">10</option>
 												</select>
 				<br>
-				Showing Agent Price Opinion:	<select name="showingPrice">
+				Showing Agent Price Opinion:	<select name="showerPriceOpinion">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -120,7 +120,7 @@
 													<option value="10">10</option>
 												</select>
 				<br>
-				Overall Experience: 			<select name="experience">
+				Overall Experience: 			<select name="overallExperience">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
@@ -134,9 +134,10 @@
 												</select>
 					<br>
                 <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
-				<textarea rows="2" cols="50" name="comments" placeholder="Comments."></textarea>
+				<textarea rows="2" cols="50" name="additionalNotes" placeholder="Comments."></textarea>
+				<input type="text" name="buyerName" placeholder="Potential Buyer's name"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
-                <input type="text" name="buyerName" placeholder="Potential Buyer's name"/>
+
 
             </fieldset>
         </form>
