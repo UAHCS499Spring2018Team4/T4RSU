@@ -136,7 +136,7 @@ body {
 	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% urls 'home' %}">
+       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% url 'home' %}">
 
       <div class="container col-sm-10">
 
@@ -164,8 +164,8 @@ body {
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">View Showings</a>
 				</li>
-				<!-- {% if Agent.Agency = Listing.Agency %} -->
-                    <a class="nav-link greentext" href="{% url 'ListChange' listing.MLS %}">Edit Listing</a>
+				<!-- {% if Agent.Agency == Listing.Agency %} -->
+                    <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
 				<!--{% endif %} -->
             <!-- {% else %}
 				<li class="nav-item">
@@ -188,35 +188,35 @@ body {
         <div class="col-lg-3">
           <div class="card card-outline-secondary my-4">
             <div class="card-body">
-              <h3 class="card-title">{{listing.address}}</h3>
-              <h4>$ {{listing.price}}</h4>
-			  <h5>{{listing.squareFootage}} SqF</h5>
-              <p class="card-text">{{listing.description}}</p>
-              <p class="room-text">{{listing.roomDescription}}</p>
+              <h3 class="card-title">{{Listing.address}}</h3>
+              <h4>$ {{Listing.price}}</h4>
+			  <h5>{{Listing.squareFootage}} SqF</h5>
+              <p class="card-text">{{Listing.description}}</p>
+              <p class="room-text">{{Listing.roomDescription}}</p>
             </div>
             <div class="card-header">
               Addition Information
             </div>
             <div class="card-body">
-              <p>School District: {{listing.schoolDistrict}}</p>
+              <p>School District: {{Listing.schoolDistrict}}</p>
               <hr>
-              <p>Subdivision Name: {{listing.subdivision}}</p>
+              <p>Subdivision Name: {{Listing.subdivision}}</p>
               <hr>
-              <p>Nearby Shopping: {{listing.shopping}}</p>
+              <p>Nearby Shopping: {{Listing.shopping}}</p>
             </div>
 			<div class="card-header">
               Contact Info
             </div>
             <div class="card-body">
-              <p>Listing Agency: {{listing.listing_agent.agency.agency_name}}</p>
-              <p>{{listing.listing_agent.agency.agency_phone}}</p>
-              <p>{{listing.listing_agent.agency.agency_address}}</p>
+              <p>Listing Agency: {{Listing.listing_agent.agency.agency_name}}</p>
+              <p>{{Listing.listing_agent.agency.agency_phone}}</p>
+              <p>{{Listing.listing_agent.agency.agency_address}}</p>
               <hr>
-              <p>Listing Agent: {{listing.listing_agent.username}}</p>
-              <p>{{listing.listing_agent.phone})</p>
-              <p>{{listing.listing_agent.email})</p>
+              <p>Listing Agent: {{Listing.listing_agent.username}}</p>
+              <p>{{Listing.listing_agent.phone})</p>
+              <p>{{Listing.listing_agent.email})</p>
             </div>
-            <!-- {% if user.Agency = Listing.Agency %} -->
+            <!-- {% if user.Agency == Listing.Agency %} -->
                 <div class="card-header">
                     Delete Listing?
                 </div>
@@ -244,11 +244,11 @@ body {
             </ol> -->
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="{{listing.photo}}" alt="Primary slide">
+                <img class="d-block img-fluid" src="{{Listing.photo}}" alt="Primary slide">
               </div>
 
 			<!-- {% for photo in photo_list %}
-				{% if photo.listing = listing %}  -->
+				{% if photo.Listing == Listing %}  -->
               <div class="carousel-item">
                 <img class="d-block img-fluid" src="{{photo.picture}}" alt="Slide">
               </div>
@@ -269,12 +269,12 @@ body {
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{listing.picture}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{Listing.picture}}" alt=""></a>
               </div>
             </div>
 
 			<!-- {% for photo in photo_list %}
-				{% if photo.listing = listing %}  -->
+				{% if photo.Listing == Listing %}  -->
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{photo.picture}}" alt=""></a>
@@ -315,8 +315,8 @@ body {
 
     <!-- Bootstrap core JavaScript -->
     {% load static %}
-    <script src="{% static 'assets/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   </body>
 

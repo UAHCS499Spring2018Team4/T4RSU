@@ -11,7 +11,7 @@ class ListingCreateView(CreateView):
     model = Listing
     fields = ['listing_agent',
         'MLSNumber',
-        'picture',
+        #'picture',
         'price',
         'address',
         'zipCode',
@@ -29,7 +29,5 @@ class ListingCreateView(CreateView):
         'lockBoxCode',
     ]
 
-    def post(self, request):
-        form = Listing(request.POST)
-
-        return render(request, self.template_name, {'form': form})
+    def form_invalid(self, form):
+        raise ValueError(str(form.errors))
