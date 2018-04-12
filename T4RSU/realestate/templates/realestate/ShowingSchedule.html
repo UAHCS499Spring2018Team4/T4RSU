@@ -175,7 +175,7 @@ tr:nth-child(even) {
                     <a class="nav-link greentext" href="#">Advanced Search</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="{% url 'CreateShowing' %}">Create Showing</a>
+                    <a class="nav-link greentext" href="{% url 'CreateShowing' pk=Listing.MLSNumber%}">Create Showing</a>
 				</li>
                 <li class="nav-item">
                     <a class="nav-link greentext" href="#">Log Out</a>
@@ -216,7 +216,7 @@ tr:nth-child(even) {
                             <td>{{showing.startTime}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
-                            {% if user.username = showing.showing_agent.username %}
+                            {% if user.username == showing.showing_agent.username %}
                                 <td><a class="nav-link darkgreentext" href="#">Feedback</a></td>
                             {% endif %}
                         </tr>

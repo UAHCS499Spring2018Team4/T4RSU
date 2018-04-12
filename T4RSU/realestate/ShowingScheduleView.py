@@ -13,7 +13,7 @@ class ShowingScheduleView(ListView):
     context_object_name = 'showing_list'
 
     def get_queryset(self):
-        lis = Listing.objects.get(MLSNumber=self.kwargs['MLSNumber'])
+        lis = Listing.objects.get(MLSNumber=self.kwargs['pk'])
         shows = Showing.objects.filter(listing=lis)
         shows = shows.filter(start_time__gte=date.today())
         return shows

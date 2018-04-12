@@ -159,10 +159,10 @@ body {
                     <a class="nav-link greentext" href="# TODO">Log Out</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-ling greentest" href="{% url 'CreateListing' %}">Create Listing</a>
+                    <a class="nav-link greentext" href="{% url 'CreateListing' %}">Create Listing</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="{% url 'Showings' pk=Listing.MLSNumber %}">View Showings</a>
+                    <a class="nav-link greentext" href="{% url 'showings' pk=Listing.MLSNumber %}">View Showings</a>
 				</li>
 				<!-- {% if Agent.Agency == Listing.Agency %} -->
                     <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
