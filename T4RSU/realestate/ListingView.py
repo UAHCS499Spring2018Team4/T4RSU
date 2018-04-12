@@ -7,5 +7,5 @@ from .Listing import Listing
 
 class ListingView(DetailView):
     template_name = 'Listing.html'
-    queryset = Listing.objects.all()
+    model = Listing
     context_object_name = 'Listing'
