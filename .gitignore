@@ -160,3 +160,10 @@ fabric.properties
 
 # ad
 .idea/misc.xml
+
+# media path
+T4RSU/media/**
+
+#dbs
+db.sqlite3
+T4RSU/*.db

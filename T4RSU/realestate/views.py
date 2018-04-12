@@ -12,3 +12,4 @@ from .SearchView import SearchView
 from .ShowingEditView import ShowingEditView
 from .ShowingScheduleView import ShowingScheduleView
 from .ShowingCreateView import ShowingCreateView
+from .AllView import AllView

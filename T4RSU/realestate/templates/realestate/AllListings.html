@@ -163,19 +163,19 @@ body {
             <li class="nav-item">
               <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
-            <!-- {% if user.is_authenticated %} -->
+            {% if user.is_authenticated %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'CreateListing' %}">Create Listing</a>
 				</li>
-            <!-- {% else %} -->
+            {% else %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'login' %}">For Agents</a>
 				</li>
-            <!--{% endif %} -->
-            
+            {% endif %}
+
           </ul>
         </div>
       </div>
@@ -213,10 +213,10 @@ body {
 
       <div class="row" style="padding:0px;">
 	  
-	  <!-- {% for listing in listing_list %}-->
+	  {% for listing in listing_list %}
         <div class="col-lg-4 col-sm-6 portfolio-item" >
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{{Listing.picture" alt=""></a>
+            <a href="{% url 'ListingView' Listing.MLSNumber %}"><img class="card-img-top" src="{% if Listing.picture %}{{Listing.picture.url}}{% endif %}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="{% url 'ListingView' pk=Listing.MLSNumber %}" class="nav-link greentext">{{Listing.address}}</a>
@@ -226,7 +226,7 @@ body {
               <p class="card-text">{{Listing.listing_agent.agency.agency_name}}</p>
             </div>
           </div>
-	  <!-- {% endfor %} -->
+	  {% endfor %}
         </div>
 		
 		<!-- Extra data for testing layout
