@@ -17,3 +17,8 @@ class ShowingScheduleView(ListView):
         shows = Showing.objects.filter(listing=lis)
         shows = shows.filter(start_time__gte=date.today())
         return shows
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['listing'] = Listing.objects.get(MLSNumber=self.kwargs['pk'])
+        return context
