@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
+    <meta name="author" content="">
     <!-- Bootstrap core CSS -->
     {% load static %}
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -46,10 +47,10 @@
 		<div class="col-sm-5"></div>
           <ul class="trial navbar-nav col-sm-6 greentext">
             <li class="nav-item">
-              <a class="nav-link greentext" href="#">Advanced Search</a>
+              <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link greentext" href="#">Log Out</a>
+                <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
             </li>
             
           </ul>
