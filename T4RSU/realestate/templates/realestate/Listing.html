@@ -152,11 +152,11 @@ body {
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
           <ul class="navbar-nav col-sm-7 greentext">
             <li class="nav-item">
-              <a class="nav-link greentext" href="#">Advanced Search</a>
+              <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
             <!-- {% if user.is_authenticated %} -->
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="# TODO">Log Out</a>
+                    <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'CreateListing' %}">Create Listing</a>
