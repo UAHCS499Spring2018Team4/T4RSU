@@ -120,8 +120,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media/').replace('\\','/')
+
 # user model
 AUTH_USER_MODEL = 'realestate.RealEstateAgentUser'
 
-LOGIN_REDIRECT_URL = '/realestate/demo/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'

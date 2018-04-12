@@ -16,5 +16,6 @@ urlpatterns = [
     path('Listing/<int:pk>/Showings/Create', views.ShowingCreateView.as_view(), name='showingcreate'),
     path('Create/', views.ListingCreateView.as_view(), name='CreateListing'),
     path('Home/', views.HomeView.as_view(), name='home'),
-    path('login/', auth_views.LoginView.as_view(template_name='LogIn.html'), name='login')
+    path('login/', auth_views.LoginView.as_view(template_name='LogIn.html'), name='login'),
+    path('AllListings/', views.AllView.as_view(), name='allview'),
 ]

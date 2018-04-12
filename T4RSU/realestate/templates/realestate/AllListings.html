@@ -144,7 +144,6 @@ body {
     <div class="fixed-top">
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12" style="background-color:#ffffff;">
-        {% load static %}
        <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="#">
 
       <div class="container col-sm-10">
@@ -163,18 +162,18 @@ body {
             <li class="nav-item">
               <a class="nav-link greentext" href="#">Advanced Search</a>
             </li>
-            <!-- {% if user.is_authenticated %} -->
+            {% if user.is_authenticated %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">Log Out</a>
 				</li>
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">Create Listing</a>
 				</li>
-            <!-- {% else %}
+            {% else %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="#">For Agents</a>
 				</li>
-            {% endif %} -->
+            {% endif %}
             
           </ul>
         </div>
@@ -213,20 +212,20 @@ body {
 
       <div class="row" style="padding:0px;">
 	  
-	  <!-- {% for listing in listing_list %}-->
+	  {% for listing in listing_list %}
         <div class="col-lg-4 col-sm-6 portfolio-item" >
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt=""></a>
+            <a href="{% url 'ListingView' listing.MLSNumber %}"><img class="card-img-top" src="{% if listing.picture %}{{listing.picture.url}}{% endif %}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#" class="nav-link greentext">{{listing.address}}</a>
+                <a href="{% url 'ListingView' listing.MLSNumber %}" class="nav-link greentext">{{listing.address}}</a>
               </h4>
               <p class="card-text">{{listing.description}}</p>
               <p class="card-text">{{listing.listing_agent.username}}</p>
               <p class="card-text">{{listing.listing_agent.agency.agency_name}}</p>
             </div>
           </div>
-	  <!-- {% endfor %} -->
+	  {% endfor %}
         </div>
 		
 		
