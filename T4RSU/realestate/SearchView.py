@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from .Listing import Listing
 
 class SearchView(ListView):
-    template_name = 'SearchView.html'
+    template_name = 'AdvancedSearch.html'
     model = Listing
 
     _filter_name_to_lookup = {
