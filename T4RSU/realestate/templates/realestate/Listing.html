@@ -154,7 +154,7 @@ body {
             <li class="nav-item">
               <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
-            <!-- {% if user.is_authenticated %} -->
+            {% if user.is_authenticated %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
 				</li>
@@ -164,15 +164,15 @@ body {
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'showings' pk=Listing.MLSNumber %}">View Showings</a>
 				</li>
-				<!-- {% if Agent.Agency == Listing.Agency %} -->
+				{% if Agent.Agency == Listing.Agency %}
                     <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
-				<!--{% endif %} -->
-            <!-- {% else %}-->
+				{% endif %}
+            {% else %}
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'login' %}">For Agents</a>
 				</li>
-            <!-- {% endif %} -->
-            
+            {% endif %}
+
           </ul>
         </div>
       </div>
