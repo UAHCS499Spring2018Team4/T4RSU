@@ -24,7 +24,7 @@ class ShowingCreateForm(ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         start = datetime(cleaned_data.get('start_time'))
-        dur = timedelta(cleaned_data.get('dur'))
+        dur = timedelta(cleaned_data.get('duration'))
         if not is_showing_td_available(self.listingMLS, start, dur):
             raise ValidationError(_("Listing already booked for showing at that time."), code='overlap')
         return cleaned_data
@@ -32,13 +32,12 @@ class ShowingCreateForm(ModelForm):
 class ShowingCreateView(LoginRequiredMixin, CreateView):
     template_name = 'CreateShowing.html'
     model = Showing
-    fields = ['start_time', 'duration']
     form_class = ShowingCreateForm
 
     def get_form_kwargs(self):
         # have to pass listing
         kwargs = super().get_form_kwargs()
-        kwargs['listingMLS'] = self.kwargs['MLSNumber']
+        kwargs['listingMLS'] = self.kwargs['pk']
         return kwargs
 
     def form_valid(self, form):
