@@ -164,7 +164,7 @@ body {
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'showings' pk=Listing.MLSNumber %}">View Showings</a>
 				</li>
-				{% if Agent.Agency == Listing.Agency %}
+				{% if user.agency.agency_name == Listing.listing_agent.agency.agency_name %}
                     <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
 				{% endif %}
             {% else %}
