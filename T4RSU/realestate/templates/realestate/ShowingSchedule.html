@@ -198,7 +198,7 @@ tr:nth-child(even) {
               Showings for MLS {{listing.MLSNumber}}: {{listing.address}}
             </div>
             <div class="card-body" style="border: 1px solid rgba(0,0,0,.125) ! important;">
-                <p>Listed by {{listing.agent.username}} of {{listing.agent.agency.agency_name}}</p>
+                <p>Listed by {{listing.listing_agent.username}} of {{listing.listing_agent.agency.agency_name}}</p>
             </div>
             <div class="card-body">
                 <table>
@@ -212,8 +212,8 @@ tr:nth-child(even) {
 
 	                {% for showing in showing_list %}
                         <tr>
-                            <td>{{showing.startTime}}</td>
-                            <td>{{showing.startTime}}</td>
+                            <td>{{showing.start_time}}</td>
+                            <td>{{showing.start_time}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
                             {% if user.username == showing.showing_agent.username %}
