@@ -8,7 +8,6 @@ from django.urls import reverse
 from django import forms
 from django.core.mail import send_mail
 from django.template.loader import get_template
-from django.template import Context
 
 from .Listing import Listing
 from .schedule import Showing, is_showing_td_available

@@ -27,7 +27,7 @@
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12 "style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% url 'Overview' %}">
+       <a href="{% url 'allview' %}"><img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2"></a>
 		
 		 <div class="container col-sm-10">
 
@@ -62,7 +62,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form method="POST" id="msform"> {% csrf_token %}
+        <form method="POST" id="msform" enctype="multipart/form-data"> {% csrf_token %}
             <!-- fieldsets -->
 			<fieldset>
                 <h2 class="fs-title">Showing Information</h2>
@@ -132,7 +132,8 @@
 					<br>
                 <h3 class="fs-subtitle">Any additional comments can be added here.</h3>
 				<textarea rows="2" cols="50" name="additionalNotes" placeholder="Comments."></textarea>
-				<input type="text" name="buyerName" placeholder="Potential Buyer's name"/>
+				<input type="hidden" name="showing" value="{{showing}}"/>
+				<input type="text" name="customerName" placeholder="Potential Buyer's name"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
 
 

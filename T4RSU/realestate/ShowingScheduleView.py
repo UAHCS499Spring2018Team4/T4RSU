@@ -4,10 +4,11 @@
 from datetime import date
 
 from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Listing, Showing
 
-class ShowingScheduleView(ListView):
+class ShowingScheduleView(LoginRequiredMixin, ListView):
     template_name = 'ShowingSchedule.html'
     model = Showing
     context_object_name = 'showing_list'
