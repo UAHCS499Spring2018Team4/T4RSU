@@ -9,7 +9,7 @@ from django.shortcuts import render
 class ListingEditView(UpdateView):
     template_name = 'ModifyListing.html'
     model = Listing
-    fields = ['listing_agent',
+    fields = [#'listing_agent',
         'MLSNumber',
         #'picture',
         'price',
