@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from .Listing import Listing
 
 class SearchView(ListView):
-    template_name = 'AdvancedSearch.html'
+    template_name = 'AllListings.html'
     model = Listing
 
     _filter_name_to_lookup = {
@@ -23,7 +23,7 @@ class SearchView(ListView):
         # For every filter we understand...
         for filter_name, lookup in SearchView._filter_name_to_lookup.items():
             # ... if it's set...
-            if filter_name in get_dict:
+            if filter_name in get_dict and get_dict[filter_name]:
                 # ... filter based on it.
                 q = q.filter(**{lookup: get_dict[filter_name]})
         return q

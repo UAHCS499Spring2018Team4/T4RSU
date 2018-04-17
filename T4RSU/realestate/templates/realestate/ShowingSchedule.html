@@ -212,12 +212,12 @@ tr:nth-child(even) {
 
 	                {% for showing in showing_list %}
                         <tr>
-                            <td>{{showing.startTime}}</td>
-                            <td>{{showing.startTime}}</td>
+                            <td>{{showing.start_time}}</td>
+                            <td>{{showing.start_time}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
                             {% if user.username == showing.showing_agent.username %}
-                                <td><a class="nav-link darkgreentext" href="{% url 'Feedback' pk=listing.MLSNumber %}">Feedback</a></td>
+                                <td><a class="nav-link darkgreentext" href="{% url 'feedback' pk=listing.MLSNumber %}">Feedback</a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}
