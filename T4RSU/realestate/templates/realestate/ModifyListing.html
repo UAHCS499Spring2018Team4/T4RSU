@@ -63,7 +63,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form method="POST" id="msform"> {% csrf_token %}
+        <form method="POST" id="msform" enctype="multipart/form-data"> {% csrf_token %}
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Listing Information</li>
@@ -88,7 +88,7 @@
                                     </select>
 
                 <h3 class="fs-subtitle">Upload a new primary picture of the property</h3>
-                <input type="file" name="primaryPicture" placeholder="Upload primary Picture Here" />
+                <input type="file" name="picture" placeholder="Upload primary Picture Here" />
 
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>

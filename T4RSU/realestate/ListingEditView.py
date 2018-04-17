@@ -11,7 +11,7 @@ class ListingEditView(UpdateView):
     model = Listing
     fields = [#'listing_agent',
         'MLSNumber',
-        #'picture',
+        'picture',
         'price',
         'address',
         'zipCode',
