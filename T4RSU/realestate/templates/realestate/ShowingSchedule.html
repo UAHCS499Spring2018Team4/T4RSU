@@ -39,8 +39,8 @@ body {
 			)
 	}
 	.logo {
-		width:15%;
-		height:auto;
+		width:100%;
+		height:100%;
     }
 
 	<--.ghost-button-semi-transparent {
@@ -155,7 +155,7 @@ tr:nth-child(even) {
 	<div class="container-fluid">
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% url 'Overview' %}">
+        <a href="{% url 'home' %}" ><img src="{% static 'poshplacehorizontal.jpg' %}" class="logo"></a>
 
       <div class="container col-sm-10">
 
