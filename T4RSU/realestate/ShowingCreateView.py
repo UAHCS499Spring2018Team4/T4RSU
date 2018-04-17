@@ -7,6 +7,7 @@ from django.views.generic import CreateView
 from django.urls import reverse
 from django import forms
 from django.core.mail import send_mail
+from django.template.loader import get_template
 
 from .Listing import Listing
 from .schedule import Showing, is_showing_td_available
@@ -56,7 +57,7 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
         form.instance.listing = Listing.objects.get(MLSNumber=self.kwargs['pk'])
         form.instance.showing_agent = self.request.user
 
-        send_mail('Showing Created!', get_templet('templates/realestate/ShowingEmail.html').render(
+        send_mail('Showing Created!', get_template('templates/realestate/ShowingEmail.html').render(
             Context({
                 'username': self.showing_agent.username,
                 'MLSNumber': self.listing.MLSNumber,
