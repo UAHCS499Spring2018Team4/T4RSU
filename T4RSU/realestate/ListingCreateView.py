@@ -12,7 +12,7 @@ class ListingCreateView(LoginRequiredMixin, CreateView):
     model = Listing
     fields = ['listing_agent',
         'MLSNumber',
-        'picture',
+       # 'picture',
         'price',
         'address',
         'zipCode',
