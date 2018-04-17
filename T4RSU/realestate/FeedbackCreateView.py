@@ -42,7 +42,7 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        send_mail('Feedback Recieved!', get_templet('templates/realestate/FeedbackEmail.html').render(
+        send_mail('Feedback Recieved!', get_templete('templates/realestate/FeedbackEmail.html').render(
             Context({
                 'username': self.showing.showing_agent.username,
                 'customerName': self.customerName,
@@ -51,7 +51,7 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
                 'customerPriceOpinion': self.customerPriceOpinion,
                 'showerPriceOpinion': self.showerPriceOpinion,
                 'additionalNotes': self.additionalNotes
-                     }), 'AutoPoshPlace@gmail.com', '{{showing.listing.listing_agent.email}}', fail_silently=False)
+            }), 'AutoPoshPlace@gmail.com', '{{showing.listing.listing_agent.email}}', fail_silently=False))
 
         return super().form_valid(form)
 
