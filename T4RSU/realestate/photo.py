@@ -7,4 +7,4 @@ from .Listing import Listing
 
 class Photo(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    picture = models.ImageField()
+    picture = models.ImageField(upload_to='primary_photos/')
