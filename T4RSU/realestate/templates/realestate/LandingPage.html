@@ -134,7 +134,7 @@ body {
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;">
         {% load static %}
-        <a href="{% url 'home' %}" ><img src="{% static 'poshplacehorizontal.jpg' %}" class="logo"></a>
+        <a href="{% url 'allview' %}" ><img src="{% static 'poshplacehorizontal.jpg' %}" class="logo"></a>
 
 
       <div class="container col-sm-10">
@@ -174,28 +174,6 @@ body {
    </nav>
  
 	<!--</div>-->
-
-    <div>
-        <ul class="nav">
-		<nav class="navbar navbar-expand-lg col-sm-12"style="background-color:#ffffff;"> 
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">TRADITIONAL HOMES</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONTEMPORARY HOMES</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">APARTMENTS</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">CONDOS/LOFTS</button></a>
-            </li>
-            <li class="col-sm-2 ButtonList">
-                <a href="#"><button class="btn btn-default col-sm-12 theme-color" href="#">BEST BUYS</button></a>
-            </li>
-        </nav>
-        </ul>
-    </div>
 </div>
 
     <div class="col-sm-12 darken" style="padding:0px;">
@@ -206,7 +184,7 @@ body {
             <div class="inner">
                 <h1 class="display-3">Find Your Perfect Home Today</h1>
 				
-				<a class="search button, btn btn-lg big-btn btn-success" href="{% url 'home' %}">Get Started</a>
+				<a class="search button, btn btn-lg big-btn btn-success" href="{% url 'allview' %}">Get Started</a>
                 <!-- {% lorem 200 w %} -->
                 <br>
                 <br>
