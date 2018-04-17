@@ -3,6 +3,8 @@
 
 from django.db import models
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.template.loader import get_template
 
 from .models import RealEstateAgentUser as Agent
 
@@ -39,12 +41,12 @@ class Listing(models.Model):
 
     def daily_hit_count(self):
 
-        send_mail('Daily Hit Count!', get_templet('templates/realestate/HitCountEmail.html').render(
-            Context({
+        send_mail('Daily Hit Count!', get_template('HitCountEmail.html').render(
+            {
                 'MLSNumber': self.MLSNumber,
                 'dailyHitCount': self.dailyHitCount,
                 'totalHitCount': self.totalHitCount
-                     })
+                     }
         ), 'AutoPoshPlace@gmail.com', [self.listing_agent.email],
                   fail_silently=False)
 
