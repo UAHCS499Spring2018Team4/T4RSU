@@ -244,7 +244,7 @@ body {
               </div>
 
 			{% for photo in photo_list %}
-				{% if photo.Listing == Listing %}
+				{% if photo.listing == listing %}
               <div class="carousel-item">
                 <img class="d-block img-fluid" src="{{photo.picture.url}}" alt="Slide">
               </div>
@@ -269,15 +269,15 @@ body {
               </div>
             </div>
 
-			<!-- {% for photo in photo_list %}
-				{% if photo.Listing == Listing %}  -->
+			{% for photo in photo_list %}
+				{% if photo.listing == listing %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{photo.picture.url}}" alt=""></a>
               </div>
             </div>
-				<!-- {% endif %}
-			{% endfor %} -->
+				{% endif %}
+			{% endfor %}
 
             </div>
           </div>
