@@ -41,7 +41,7 @@ class Listing(models.Model):
 
     def daily_hit_count(self):
 
-        send_mail('Daily Hit Count!', get_template('templates/realestate/HitCountEmail.html').render(
+        send_mail('Daily Hit Count!', get_template('HitCountEmail.html').render(
             {
                 'MLSNumber': self.MLSNumber,
                 'dailyHitCount': self.dailyHitCount,
