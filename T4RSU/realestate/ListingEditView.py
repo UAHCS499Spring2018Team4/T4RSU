@@ -2,11 +2,12 @@
 # encoding=utf-8
 
 from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .Listing import Listing
-from django.shortcuts import render
 
 
-class ListingEditView(UpdateView):
+class ListingEditView(LoginRequiredMixin, UpdateView):
     template_name = 'ModifyListing.html'
     model = Listing
     fields = [#'listing_agent',

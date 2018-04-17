@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # encoding=utf-8
 
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import ModelForm
 from django.views.generic import CreateView

@@ -2,6 +2,7 @@
 # encoding=utf-8
 
 from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class ShowingEditView(UpdateView):
+class ShowingEditView(LoginRequiredMixin, UpdateView):
     template_name = 'CreateShowing.html'

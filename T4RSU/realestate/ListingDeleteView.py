@@ -3,10 +3,11 @@
 
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .Listing import  Listing
 
-class ListingDeleteView(DeleteView):
+class ListingDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'ListingDelete.html'
     model = Listing
 
