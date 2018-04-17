@@ -56,17 +56,15 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
         form.instance.listing = Listing.objects.get(MLSNumber=self.kwargs['pk'])
         form.instance.showing_agent = self.request.user
 
-        message = """
-                {{showing_agent.username}} has scheduled a showing for listing #{{listing.MLSNumber}} at {{start_time}}.
-                """
+        message = """{{showing_agent.username}} has scheduled a showing for listing #{{listing.MLSNumber}} at {{start_time}}."""
 
-        send_mail('Showing Created!', get_templet('templates/realestate/ShowingEmail.html').render(
+        send_mail('Showing Created!', get_templete('templates/realestate/ShowingEmail.html').render(
             Context({
                 'username': self.showing_agent.username,
                 'MLSNumber': self.listing.MLSNumber,
                 'start_time': self.start_time
-                     }), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
-                  fail_silently=False)
+            }), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
+            fail_silently=False))
 
         return super().form_valid(form)
 
