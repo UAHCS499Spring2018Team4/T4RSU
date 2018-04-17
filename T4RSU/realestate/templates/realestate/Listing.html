@@ -164,7 +164,7 @@ body {
 				<li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'showings' pk=Listing.MLSNumber %}">View Showings</a>
 				</li>
-				{% if Agent.Agency == Listing.Agency %}
+				{% if user.agency.agency_name == Listing.listing_agent.agency.agency_name %}
                     <a class="nav-link greentext" href="{% url 'ListChange' pk=Listing.MLSNumber %}">Edit Listing</a>
 				{% endif %}
             {% else %}
@@ -213,10 +213,10 @@ body {
               <p>{{Listing.listing_agent.agency.agency_address}}</p>
               <hr>
               <p>Listing Agent: {{Listing.listing_agent.username}}</p>
-              <p>{{Listing.listing_agent.phone})</p>
-              <p>{{Listing.listing_agent.email})</p>
+              <p>{{listing.listing_agent.phone})</p>
+              <p>{{listing.listing_agent.email})</p>
             </div>
-            <!-- {% if user.Agency == Listing.Agency %} -->
+            {% if user.agency.agency_name == Listing.listing_agent.agency.agency_name %}
                 <div class="card-header">
                     Delete Listing?
                 </div>
@@ -225,7 +225,7 @@ body {
                     <a class="nav-link greentext" href="{% url 'Delete' pk=Listing.MLSNumber %}">Click here to delete this listing.</a>
 				</li>
                 </div>
-            <!--{% endif %} -->
+            {% endif %}
           </div>
         </div>
         <!-- /.col-lg-3 -->

@@ -195,10 +195,10 @@ tr:nth-child(even) {
 
           <!-- /.card -->
             <div class="card-header"style="border: 1px solid rgba(0,0,0,.125) ! important;">
-              Showings for MLS {{Listing.MLSNumber}}: {{Listing.address}}
+              Showings for MLS {{listing.MLSNumber}}: {{listing.address}}
             </div>
             <div class="card-body" style="border: 1px solid rgba(0,0,0,.125) ! important;">
-                <p>Listed by {{Listing.agent.username}} of {{Listing.agent.agency.agency_name}}</p>
+                <p>Listed by {{listing.listing_agent.username}} of {{listing.listing_agent.agency.agency_name}}</p>
             </div>
             <div class="card-body">
                 <table>
