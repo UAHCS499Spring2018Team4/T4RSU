@@ -246,7 +246,7 @@ body {
 			{% for photo in photo_list %}
 				{% if photo.Listing == Listing %}
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="{{photo.picture}}" alt="Slide">
+                <img class="d-block img-fluid" src="{{photo.picture.url}}" alt="Slide">
               </div>
 				{% endif %}
 			{% endfor %}
@@ -265,7 +265,7 @@ body {
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{Listing.picture}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{Listing.picture.url}}" alt=""></a>
               </div>
             </div>
 
@@ -273,7 +273,7 @@ body {
 				{% if photo.Listing == Listing %}  -->
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{photo.picture}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{photo.picture.url}}" alt=""></a>
               </div>
             </div>
 				<!-- {% endif %}
