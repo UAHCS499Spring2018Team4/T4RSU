@@ -64,6 +64,7 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
                      })), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
                   fail_silently=False)
 
+
         return super().form_valid(form)
 
     def get_success_url(self):
