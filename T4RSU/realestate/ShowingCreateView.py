@@ -69,4 +69,4 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         # redirect to showings for listing
-        return reverse('showings', kwargs={'MLSNumber': self.get_object().listing.MLSNumber})
+        return reverse('showings', kwargs={'pk': self.kwargs['pk']})
