@@ -27,7 +27,7 @@
 	<!--<div class="container-fluid">-->
     <nav class="navbar navbar-expand-lg col-sm-12 "style="background-color:#ffffff;">
         {% load static %}
-       <img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2" href="{% url 'Overview' %}">
+       <a href="{% url 'allview' %}"><img src="{% static 'poshplacehorizontal.jpg' %}" class="logo col-sm-2"></a>
 		
 		 <div class="container col-sm-10">
 
@@ -66,9 +66,9 @@
             <!-- fieldsets -->
             <fieldset>
                 <h2 class="fs-title">Showing Time</h2>
-                <h3 class="fs-subtitle">Please put the start time and the duration.</h3>
+                <h3 class="fs-subtitle">Please put the start time of the showing. Duration will be 1 hour.</h3>
 				<input id="start_time" type="datetime-local" name="start_time" value="2018-12-31 12:00"/>
-                <input id="duration" type="time" name="duration"/>
+                <input id="duration" type="hidden" name="duration" value="01:00:00"/>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form>
