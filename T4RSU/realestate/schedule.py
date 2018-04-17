@@ -13,10 +13,10 @@ def do_td_overlap(t1: datetime, d1: timedelta, t2: datetime, d2: timedelta) -> b
     et2 = t2 + d2
     if(t1 < et2):
         # Make sure one ends before the other begins
-        return bool(et1 < t2)
+        return not bool(et1 < t2)
     else:
         # b ends before a begins
-        return True
+        return False
 
 def do_showings_overlap(a: 'Showing', b: 'Showing') -> bool:
     """
