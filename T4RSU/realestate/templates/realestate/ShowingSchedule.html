@@ -215,7 +215,7 @@ tr:nth-child(even) {
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
                             {% if user.username == showing.showing_agent.username %}
-                                <td><a class="nav-link darkgreentext" href="{% url 'feedback' pk=listing.MLSNumber %}">Feedback</a></td>
+                                <td><a class="nav-link darkgreentext" href="{% url 'feedback' pk=listing.MLSNumber sk=showing.id %}">Feedback</a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}
