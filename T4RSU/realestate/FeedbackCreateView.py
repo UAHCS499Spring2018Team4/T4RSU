@@ -52,7 +52,7 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
         Additional Notes: {{additionalNotes}}
         """
 
-        send_mail('Feedback Recieved!', str(message), 'AutoPoshPlace', '{{showing.listing.listing_agent.email}}', fail_silently=False)
+        send_mail('Feedback Recieved!', str(message), 'AutoPoshPlace@gmail.com', '{{showing.listing.listing_agent.email}}', fail_silently=False)
 
         return super().form_valid(form)
 
