@@ -38,7 +38,7 @@ class ShowingCreateForm(ModelForm):
         start = cleaned_data.get('start_time')
         dur = cleaned_data.get('duration')
         if not is_showing_td_available(self.listingMLS, start, dur):
-            raise ValidationError(_("Listing already booked for showing at that time."), code='overlap')
+            raise ValidationError(("Listing already booked for showing at that time."), code='overlap')
         return cleaned_data
 
 class ShowingCreateView(LoginRequiredMixin, CreateView):
@@ -60,7 +60,7 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
                 {{showing_agent.username}} has scheduled a showing for listing #{{listing.MLSNumber}} at {{start_time}}.
                 """
 
-        send_mail('Showing Created!', str(message), 'AutoPoshPlace', [form.instance.listing.listing_agent.email],
+        send_mail('Showing Created!', str(message), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
                   fail_silently=False)
 
         return super().form_valid(form)
