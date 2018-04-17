@@ -175,7 +175,7 @@ tr:nth-child(even) {
                     <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
 				</li>
 				<li class="nav-item">
-                    <a class="nav-link greentext" href="{% url 'CreateShowing' pk=Listing.MLSNumber%}">Create Showing</a>
+                    <a class="nav-link greentext" href="{% url 'showingcreate' pk=listing.MLSNumber%}">Create Showing</a>
 				</li>
                 <li class="nav-item">
                     <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
@@ -195,10 +195,10 @@ tr:nth-child(even) {
 
           <!-- /.card -->
             <div class="card-header"style="border: 1px solid rgba(0,0,0,.125) ! important;">
-              Showings for MLS {{Listing.MLSNumber}}: {{Listing.address}}
+              Showings for MLS {{listing.MLSNumber}}: {{listing.address}}
             </div>
             <div class="card-body" style="border: 1px solid rgba(0,0,0,.125) ! important;">
-                <p>Listed by {{Listing.agent.username}} of {{Listing.agent.agency.agency_name}}</p>
+                <p>Listed by {{listing.listing_agent.username}} of {{listing.listing_agent.agency.agency_name}}</p>
             </div>
             <div class="card-body">
                 <table>
@@ -212,12 +212,12 @@ tr:nth-child(even) {
 
 	                {% for showing in showing_list %}
                         <tr>
-                            <td>{{showing.startTime}}</td>
-                            <td>{{showing.startTime}}</td>
+                            <td>{{showing.start_time}}</td>
+                            <td>{{showing.start_time}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
-                            {% if user.username = showing.showing_agent.username %}
-                                <td><a class="nav-link darkgreentext" href="{% url 'Feedback' pk=listing.MLSNumber %}">Feedback</a></td>
+                            {% if user.username == showing.showing_agent.username %}
+                                <td><a class="nav-link darkgreentext" href="{% url 'feedback' pk=listing.MLSNumber %}">Feedback</a></td>
                             {% endif %}
                         </tr>
                     {% endfor %}

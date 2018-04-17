@@ -32,7 +32,10 @@ class Listing(models.Model):
     lockBoxCode = models.TextField()    # TODO: nullable?
 
     def get_absolute_url(self):
-        return reverse('ListingView', kwargs={'MLSNumber': self.MLSNumber})
+        return reverse('ListingView', kwargs={'pk': self.MLSNumber})
 
     def __str__(self):
         return 'Number: ' + str(self.MLSNumber)
+
+    def daily_hit_count(self):
+
