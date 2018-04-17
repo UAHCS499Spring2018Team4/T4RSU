@@ -61,7 +61,7 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
                 'username': self.showing_agent.username,
                 'MLSNumber': self.listing.MLSNumber,
                 'start_time': self.start_time
-                     })), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
+                     })), 'AutoPoshPlace@gmail.com', [self.listing.listing_agent.email],
                   fail_silently=False)
 
 

@@ -7,6 +7,6 @@ from datetime import datetime
 logger = get_task_logger(__name__)
 
 
-@periodic_task(run_every=(crontab(hour="6", minute="0")))
+@periodic_task(run_every=(crontab(hour="10", minute="45")))
 def run_daily_emails():
-    Listing.daily_hit_count()
+    [entry.daily_hit_count() for entry in ListingsModel.objects.all()]
