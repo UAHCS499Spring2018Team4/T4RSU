@@ -63,7 +63,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form method="POST" id="msform"> {% csrf_token %}
+        <form method="POST" id="msform" enctype="multipart/form-data"> {% csrf_token %}
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Listing Information</li>
