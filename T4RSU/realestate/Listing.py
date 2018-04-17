@@ -12,7 +12,7 @@ class Listing(models.Model):
     """
     listing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
     MLSNumber = models.IntegerField(unique=True, primary_key=True, db_column='id')
-    picture = models.ImageField(null=True)
+    picture = models.ImageField(null=True, upload_to='primary_photos/')
     price = models.DecimalField(max_digits=13, decimal_places=2)    # 1 bn $ sale?
     address = models.TextField()
     zipCode = models.IntegerField()

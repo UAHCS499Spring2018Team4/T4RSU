@@ -7,6 +7,8 @@ from django.views.generic import CreateView
 from django.urls import reverse
 from django import forms
 from django.core.mail import send_mail
+from django.template.loader import get_template
+from django.template import Context
 
 from .Listing import Listing
 from .schedule import Showing, is_showing_td_available
@@ -56,19 +58,15 @@ class ShowingCreateView(LoginRequiredMixin, CreateView):
         form.instance.listing = Listing.objects.get(MLSNumber=self.kwargs['pk'])
         form.instance.showing_agent = self.request.user
 
-        message = """{{showing_agent.username}} has scheduled a showing for listing #{{listing.MLSNumber}} at {{start_time}}."""
-
-        send_mail('Showing Created!', get_templete('templates/realestate/ShowingEmail.html').render(
-            Context({
-                'username': self.showing_agent.username,
-                'MLSNumber': self.listing.MLSNumber,
-                'start_time': self.start_time
-                     })), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
-                  fail_silently=False)
-
+        send_mail('Showing Created!', get_template('ShowingEmail.html').render({
+                'username': form.instance.showing_agent.username,
+                'MLSNumber': form.instance.listing.MLSNumber,
+                'start_time': form.instance.start_time
+            }), 'AutoPoshPlace@gmail.com', [form.instance.listing.listing_agent.email],
+            fail_silently=False)
 
         return super().form_valid(form)
 
     def get_success_url(self):
         # redirect to showings for listing
-        return reverse('showings', kwargs={'MLSNumber': self.get_object().listing.MLSNumber})
+        return reverse('showings', kwargs={'pk': self.kwargs['pk']})

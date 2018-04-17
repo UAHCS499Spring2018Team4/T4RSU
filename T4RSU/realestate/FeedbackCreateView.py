@@ -51,7 +51,7 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
                 'customerPriceOpinion': self.customerPriceOpinion,
                 'showerPriceOpinion': self.showerPriceOpinion,
                 'additionalNotes': self.additionalNotes
-                     })), 'AutoPoshPlace@gmail.com', '{{showing.listing.listing_agent.email}}', fail_silently=False)
+                     })), 'AutoPoshPlace@gmail.com', [self.showing.listing.listing_agent.email], fail_silently=False)
 
 
         return super().form_valid(form)

@@ -31,16 +31,13 @@
 		
 		 <div class="container col-sm-10">
 
-        <div class="form-group col-sm-10">
+        <div class="form-group col-sm-7">
             <div class="navbar-brand col-sm-12">
-               <div class="row">
-					
-                  <!--  <label class="col-sm-1 control-label">Search</label>
-                    <input class="form-control col-sm-11 searchbar" type= "text" placeholder="Enter Zip Code, Price, or Sq. Footage"/>-->
-						
-				</div>
+                <form class="row" method="POST">
+                </form>
             </div>
         </div>
+
 		
 		 <div class="col-sm-1"></div>
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
@@ -66,7 +63,7 @@
 <!-- MultiStep Form -->
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form method="POST" id="msform"> {% csrf_token %}
+        <form method="POST" id="msform" enctype="multipart/form-data"> {% csrf_token %}
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">Listing Information</li>
@@ -91,7 +88,7 @@
                                     </select>
 
                 <h3 class="fs-subtitle">Upload a new primary picture of the property</h3>
-                <input type="file" name="primaryPicture" placeholder="Upload primary Picture Here" />
+                <input type="file" name="picture" placeholder="Upload primary Picture Here" />
 
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>

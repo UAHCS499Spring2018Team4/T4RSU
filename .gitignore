@@ -170,3 +170,6 @@ T4RSU/*.db
 
 # dumb overwriting interpreter selection
 .idea/T4RSU.iml
+
+# media upload dir
+T4RSU/T4RSU/media/**
