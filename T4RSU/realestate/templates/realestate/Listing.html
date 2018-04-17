@@ -143,8 +143,6 @@ body {
         <div class="form-group col-sm-7">
             <div class="navbar-brand col-sm-12">
                 <form class="row" method="POST"> {% csrf_token %}
-                    <input class="form-control col-sm-10 searchbar" type= "text" placeholder="Quick Search by Zip Code"/>
-                    <input type="submit" name="search" class="submit action-button" value="Submit"/>
                 </form>
             </div>
         </div>
@@ -213,8 +211,8 @@ body {
               <p>{{Listing.listing_agent.agency.agency_address}}</p>
               <hr>
               <p>Listing Agent: {{Listing.listing_agent.username}}</p>
-              <p>{{listing.listing_agent.phone})</p>
-              <p>{{listing.listing_agent.email})</p>
+              <p>{{Listing.listing_agent.phone}}</p>
+              <p>{{Listing.listing_agent.email}}</p>
             </div>
             {% if user.agency.agency_name == Listing.listing_agent.agency.agency_name %}
                 <div class="card-header">
@@ -242,16 +240,16 @@ body {
             </ol> -->
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="{{Listing.photo}}" alt="Primary slide">
+                <img class="d-block img-fluid" src="{{Listing.photo.url}}" alt="Primary slide">
               </div>
 
-			<!-- {% for photo in photo_list %}
-				{% if photo.Listing == Listing %}  -->
+			{% for photo in photo_list %}
+				{% if photo.Listing == Listing %}
               <div class="carousel-item">
                 <img class="d-block img-fluid" src="{{photo.picture}}" alt="Slide">
               </div>
-				<!-- {% endif %}
-			{% endfor %} -->
+				{% endif %}
+			{% endfor %}
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

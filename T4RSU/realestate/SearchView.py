@@ -1,29 +1,43 @@
 #!/usr/bin/env python3
 # encoding=utf-8
 
-from django.views.generic import ListView
+from django.views.generic.edit import FormView
+from django import forms
+from django.forms import Form
+from django.urls import reverse
 
-from .Listing import Listing
+class SearchForm(Form):
+    template_name = 'AdvancedSearch.html'
 
-class SearchView(ListView):
-    template_name = 'AllListings.html'
-    model = Listing
+    area_min = forms.FloatField(required=False)
+    area_max = forms.FloatField(required=False)
+    price_min = forms.DecimalField(max_digits=13, decimal_places=2, required=False)
+    price_max = forms.DecimalField(max_digits=13, decimal_places=2, required=False)
+    zip = forms.IntegerField(required=False)
 
-    _filter_name_to_lookup = {
-        "area_min": "squareFootage__gte",
-        "area_max": "squareFootage__lte",
-        "price_min": "price__gte",
-        "price_max": "price__lte",
-        "zip": "zipCode",
-    }
+class SearchView(FormView):
+    template_name = 'AdvancedSearch.html'
+    form_class = SearchForm
 
-    def get_queryset(self):
-        get_dict = self.request.GET.dict()
-        q = Listing.objects.all()
-        # For every filter we understand...
-        for filter_name, lookup in SearchView._filter_name_to_lookup.items():
-            # ... if it's set...
-            if filter_name in get_dict and get_dict[filter_name]:
-                # ... filter based on it.
-                q = q.filter(**{lookup: get_dict[filter_name]})
-        return q
+    def form_valid(self, form):
+        self.form = form
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        raise ValueError('test')
+
+    def def_str(x: str):
+        if x is None:
+            return ''
+        else:
+            return x
+
+    def get_success_url(self):
+        redirect = "{}?area_min={}&area_max={}&price_min={}&price_max={}&zip={}".format(
+            reverse('allview'),
+            SearchView.def_str(self.form.cleaned_data['area_min']),
+            SearchView.def_str(self.form.cleaned_data['area_max']),
+            SearchView.def_str(self.form.cleaned_data['price_min']),
+            SearchView.def_str(self.form.cleaned_data['price_max']),
+            SearchView.def_str(self.form.cleaned_data['zip']))
+        return redirect

@@ -42,17 +42,17 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        message = """
-        Here is what {{showing.showing_agent.username}} Had to say about the showing.
-        Customer Name: {{customerName}}.
-        Customer Interest; {{costomerInterest}}/10
-        Overall Experience; {{overallExperience}}/10
-        Customer's Opinion of the Price; {{customerPriceOpinion}}/10
-        Showing Agent's Opinion of the Price: {{showerPriceOpinion}}/10
-        Additional Notes: {{additionalNotes}}
-        """
+        send_mail('Feedback Recieved!', get_templete('templates/realestate/FeedbackEmail.html').render(
+            Context({
+                'username': self.showing.showing_agent.username,
+                'customerName': self.customerName,
+                'costomerInterest': self.costomerInterest,
+                'overallExperience': self.overallExperience,
+                'customerPriceOpinion': self.customerPriceOpinion,
+                'showerPriceOpinion': self.showerPriceOpinion,
+                'additionalNotes': self.additionalNotes
+                     })), 'AutoPoshPlace@gmail.com', [self.showing.listing.listing_agent.email], fail_silently=False)
 
-        send_mail('Feedback Recieved!', str(message), 'AutoPoshPlace', '{{showing.listing.listing_agent.email}}', fail_silently=False)
 
         return super().form_valid(form)
 

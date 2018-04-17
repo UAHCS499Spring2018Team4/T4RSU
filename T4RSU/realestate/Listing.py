@@ -12,7 +12,7 @@ class Listing(models.Model):
     """
     listing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
     MLSNumber = models.IntegerField(unique=True, primary_key=True, db_column='id')
-    picture = models.ImageField(null=True)
+    picture = models.ImageField(null=True, upload_to='primary_photos/')
     price = models.DecimalField(max_digits=13, decimal_places=2)    # 1 bn $ sale?
     address = models.TextField()
     zipCode = models.IntegerField()
@@ -36,3 +36,16 @@ class Listing(models.Model):
 
     def __str__(self):
         return 'Number: ' + str(self.MLSNumber)
+
+    def daily_hit_count(self):
+
+        send_mail('Daily Hit Count!', get_templet('templates/realestate/HitCountEmail.html').render(
+            Context({
+                'MLSNumber': self.MLSNumber,
+                'dailyHitCount': self.dailyHitCount,
+                'totalHitCount': self.totalHitCount
+                     })
+        ), 'AutoPoshPlace@gmail.com', [self.listing_agent.email],
+                  fail_silently=False)
+
+        self.dailyHitCount = 0
