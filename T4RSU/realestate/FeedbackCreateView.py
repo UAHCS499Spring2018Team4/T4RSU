@@ -7,6 +7,7 @@ from django.forms import ModelForm
 from django.views.generic import CreateView
 from django.urls import reverse
 from django.core.mail import send_mail
+from django.template.loader import get_template
 
 from .feedback import Feedback
 from .Listing import Listing
@@ -42,20 +43,20 @@ class FeedbackCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        send_mail('Feedback Recieved!', get_templete('templates/realestate/FeedbackEmail.html').render(
-            Context({
+        send_mail('Feedback Recieved!', get_template('FeedbackEmail.html').render(
+            {
                 'username': self.showing.showing_agent.username,
                 'customerName': self.customerName,
-                'costomerInterest': self.costomerInterest,
+                'customerInterest': self.customerInterest,
                 'overallExperience': self.overallExperience,
                 'customerPriceOpinion': self.customerPriceOpinion,
                 'showerPriceOpinion': self.showerPriceOpinion,
                 'additionalNotes': self.additionalNotes
-                     })), 'AutoPoshPlace@gmail.com', [self.showing.listing.listing_agent.email], fail_silently=False)
+                     }), 'AutoPoshPlace@gmail.com', [self.showing.listing.listing_agent.email], fail_silently=False)
 
 
         return super().form_valid(form)
 
     def get_success_url(self):
         # redirect to showings for listing
-        return reverse('showings', kwargs={'MLSNumber': self.get_object().listing.MLSNumber})
+        return reverse('showings', kwargs={'pk': self.kwargs['pk']})
