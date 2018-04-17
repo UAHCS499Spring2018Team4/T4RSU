@@ -36,3 +36,6 @@ class Listing(models.Model):
 
     def __str__(self):
         return 'Number: ' + str(self.MLSNumber)
+
+    def daily_hit_count(self):
+
