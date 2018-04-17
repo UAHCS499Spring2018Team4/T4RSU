@@ -20,4 +20,5 @@ app.autodiscover_tasks()
 
 
 @periodic_task(run_every=(crontab(hour="6", minute="0")))
-def scraper_example():
+def run_daily_emails():
+    Listing.daily_hit_count()
