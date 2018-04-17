@@ -4,6 +4,7 @@
 from datetime import datetime, timedelta
 
 from django.db import models
+from django.urls import reverse
 
 from .Listing import Listing
 from .models import RealEstateAgentUser as Agent
@@ -43,3 +44,6 @@ class Showing(models.Model):
     start_time = models.DateTimeField()
     duration = models.DurationField()
     showing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
+
+    def get_absolute_url(self):
+        return reverse('ShowingView', kwargs={'pk': self.listing.MLSNumber})
