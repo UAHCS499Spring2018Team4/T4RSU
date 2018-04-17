@@ -211,7 +211,7 @@ tr:nth-child(even) {
 	                {% for showing in showing_list %}
                         <tr>
                             <td>{{showing.start_time}}</td>
-                            <td>{{showing.start_time}}</td>
+                            <td>{{showing.end_time}}</td>
                             <td>{{showing.showing_agent.username}}</td>
                             <td>{{showing.showing_agent.agency.agency_name}}</td>
                             {% if user.username == showing.showing_agent.username %}

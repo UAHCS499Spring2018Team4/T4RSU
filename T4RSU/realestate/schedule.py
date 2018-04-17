@@ -44,3 +44,7 @@ class Showing(models.Model):
     start_time = models.DateTimeField()
     duration = models.DurationField()
     showing_agent = models.ForeignKey(Agent, on_delete=models.PROTECT)
+
+    @property
+    def end_time(self):
+        return self.start_time + self.duration
