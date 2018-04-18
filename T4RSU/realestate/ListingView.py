@@ -16,3 +16,9 @@ class ListingView(DetailView):
         lis = Listing.objects.get(MLSNumber=self.kwargs['pk'])
         context['photo_list'] = Photo.objects.filter(listing=lis)
         return context
+
+    def get_object(self):
+        item = super().get_object()
+        item.dailyHitCount = item.dailyHitCount + 1
+        item.totalHitCount = item.totalHitCount + 1
+        return item
