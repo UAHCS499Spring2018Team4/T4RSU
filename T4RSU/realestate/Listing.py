@@ -41,13 +41,10 @@ class Listing(models.Model):
 
     def daily_hit_count(self):
 
-        send_mail('Daily Hit Count!', get_template('HitCountEmail.html').render(
-            {
-                'MLSNumber': self.MLSNumber,
-                'dailyHitCount': self.dailyHitCount,
-                'totalHitCount': self.totalHitCount
-                     }
-        ), 'AutoPoshPlace@gmail.com', [self.listing_agent.email],
-                  fail_silently=False)
+        send_mail('Daily Hit Count!', get_template('HitCountEmail.html').render({
+            'MLSNumber': self.MLSNumber,
+            'dailyHitCount': self.dailyHitCount,
+            'totalHitCount': self.totalHitCount
+            }), 'AutoPoshPlace@gmail.com', [self.listing_agent.email], fail_silently=False)
 
         self.dailyHitCount = 0
