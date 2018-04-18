@@ -42,7 +42,7 @@ class ListingCreateForm(ModelForm):
     Picture4 = forms.ImageField(required=False)
     Picture5 = forms.ImageField(required=False)
 
-    _picfieldnames = [
+    picfieldnames = [
         'Picture1',
         'Picture2',
         'Picture3',
@@ -61,6 +61,7 @@ class ListingCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.save()
-        if 'Picture1' in form.cleaned_data:
-            Photo(listing=form.instance, picture=form.cleaned_data.get('Picture1')).save()
+        for field in ListingCreateForm.picfieldnames:
+            if field in form.cleaned_data:
+                Photo(listing=form.instance, picture=form.cleaned_data.get(field)).save()
         return super().form_valid(form)
