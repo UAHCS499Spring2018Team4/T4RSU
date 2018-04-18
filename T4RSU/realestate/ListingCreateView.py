@@ -12,7 +12,6 @@ class ListingCreateView(LoginRequiredMixin, CreateView):
     template_name = 'CreateListing.html'
     model = Listing
     form_class = ListingForm
-    Picture1 = forms.ImageField(required=False)
 
     def form_invalid(self, form):
         raise ValueError(str(form.errors))
