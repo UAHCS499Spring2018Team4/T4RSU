@@ -19,6 +19,6 @@ class ListingCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.save()
         for field in ListingForm.picfieldnames:
-            if field in form.cleaned_data:
+            if field in form.cleaned_data and form.cleaned_data.get(field):
                 Photo(listing=form.instance, picture=form.cleaned_data.get(field)).save()
         return super().form_valid(form)
