@@ -38,20 +38,33 @@
             </div>
         </div>
 
-		
+
 		 <div class="col-sm-1"></div>
         <div class="collapse navbar-collapse col-sm-4" id="navbarResponsive">
 		<div class="col-sm-5"></div>
-          <ul class="trial navbar-nav col-sm-6 greentext">
+
+            <ul class="trial navbar-nav col-sm-6 greentext">
             <li class="nav-item">
               <a class="nav-link greentext" href="{% url 'SearchView' %}">Advanced Search</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link greentext" href= "{% url 'logout' %}">Log Out</a>
-            </li>
-            
+            {% if user.is_authenticated %}
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="{% url 'logout' %}">Log Out</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="{% url 'CreateListing' %}">Create Listing</a>
+				</li>
+            {% else %}
+				<li class="nav-item">
+                    <a class="nav-link greentext" href="{% url 'login' %}">For Agents</a>
+				</li>
+            {% endif %}
+
           </ul>
         </div>
+
+
+
       </div>
     </nav>
     </div>
